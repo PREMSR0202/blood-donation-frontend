@@ -1,0 +1,26 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+const components = [
+  SidebarComponent,
+  NavbarComponent
+];
+
+const modules = [
+  CommonModule,
+  HttpClientModule,
+  FormsModule
+];
+
+@NgModule({
+  declarations: [...components],
+  imports: [
+    ...modules
+  ],
+  exports: [...components,...modules]
+})
+export class SharedModule { }
