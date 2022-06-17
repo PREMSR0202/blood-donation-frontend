@@ -7,16 +7,24 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     AdminModule,
-    UserModule
+    UserModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

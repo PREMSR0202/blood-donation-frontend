@@ -1,0 +1,137 @@
+#body{
+    position: relative;
+    margin:0;
+    padding: 0%;
+    height: 100vh;
+    width: 100%;
+    font-family: cursive;
+}
+
+.blob1{
+  position:absolute;
+  top:-90px;
+  right:0;
+  z-index: -1;
+  margin:0px;
+  
+}
+.blob2{
+  position:fixed;
+  bottom:0;
+  z-index: -1;
+  left:0;          
+} 
+    .center{
+    display: block;
+    margin: 0% auto;
+    }
+    .image{
+    display: block;
+    background: white;
+    width:100%;
+    margin-top: 14%;
+    z-index: 999;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .contain{
+    display: block;
+    background: #fff;
+    padding: 30px; 
+    width:106%;
+    position:relative;
+    margin:0 auto;        
+    margin-top: 14%;
+    box-shadow: 3px 3px rgba(0,0,0,0.1);
+    }
+    .logo{
+    position: absolute;
+    top:3px;
+    left:3px;
+    
+    }
+    .contain .text{
+    font-size: 32px;
+    font-weight: 550;
+    text-align: center;
+
+    }
+    .contain form .data{
+    height: 40px;
+    width: 100%;
+    margin: 50px 0;
+    }
+    form .data label{
+    font-size: 15px;
+    color: rgb(46, 0, 0);
+    }
+    form .data input{
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+    }
+    input:focus{
+    outline:none;
+    
+    border:2px solid #8e8d8a !important;
+    box-shadow: 1.5px 1.5px gainsboro;
+    }
+    form .forgot-pass{
+    margin-top: -8px;
+    }
+    form .forgot-pass a{
+    color: #8e8d8a;
+    text-decoration: none;
+    }
+    form .forgot-pass a:hover{
+    text-decoration: underline;
+    }
+    form .btn{
+    margin: 30px 0;
+    height: 45px;
+    width: 80%;
+    overflow: hidden;
+    }
+    /*
+    left: -100%;
+    z-index: -1;
+    transition: all 0.4s;
+    */
+    form .btn {
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(right, rgb(255, 130, 130), rgb(255, 96, 79));
+    
+    }
+    form input{
+    border-radius: 10px;
+    }
+    form .btn button{
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    }
+    form .signup-link{
+    text-align: center;
+    }
+    form .signup-link a{
+    color: #3498db;
+    text-decoration: none;
+    }
+    form .signup-link a:hover{
+    text-decoration: underline;
+    }
+
+#togglePassword 
+{
+    margin-left: -30px; 
+    cursor: pointer;
+}
