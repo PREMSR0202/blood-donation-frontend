@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from 'src/app/interfaces/login-model';
+import { EmployeesService } from 'src/app/service/user/employees.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,10 @@ import { LoginModel } from 'src/app/interfaces/login-model';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router,private toastr: ToastrService) { }
-
+  constructor(private auth: AuthService, private router: Router,private toastr: ToastrService, private serv:EmployeesService) { }
+  loginForm = new LoginModel('', '');
+  email = this.loginForm.email;
+  password = this.loginForm.password;
   ngOnInit(): void {
   }   
   eyeIcon(){
@@ -26,17 +29,17 @@ export class LoginComponent implements OnInit {
     togglePassword.classList.toggle('fa-eye-slash');
    
   }
-  loginForm = new LoginModel('', '');
+  
 
   submit() {
-    const email = this.loginForm.email;
-    const password = this.loginForm.password;
-    if(email.length > 0 && password.length > 0 )
+   
+    if(this.email.length > 0 && this.password.length > 0 )
     {
       this.toastr.success('Login Successful !','',{
         timeOut: 2000,
         closeButton :true
       });
+      this.loginUser();
       this.router.navigate(['/'])
     }
     else 
@@ -48,6 +51,10 @@ export class LoginComponent implements OnInit {
 
     }
    
+  }
+
+  loginUser(){
+     this.serv.loginUser(this.email, this.password);
   }
   
 

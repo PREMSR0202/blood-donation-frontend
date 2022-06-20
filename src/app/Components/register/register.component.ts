@@ -4,17 +4,18 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { emailValidator, passwordValidator, passwordMatch, mobileNumberValidator, bloodGroupValidator } from 'src/app/validator/registration.validator';
-
+import { EmployeesService } from 'src/app/service/user/employees.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit{
 
   constructor(private toastr: ToastrService,private router: Router,
-    private formBuilder: FormBuilder, private auth: AuthService) { }
+    private formBuilder: FormBuilder, private auth: AuthService, private serv : EmployeesService) { }
 
   ngOnInit(): void {
 
@@ -84,10 +85,31 @@ export class RegisterComponent implements OnInit {
       timeOut: 3500,
       closeButton :true
     });
+    this.registerUser();
     this.router.navigate(['/login'])
   
   }
+  registerUser(){
+    const date = new Date();
+
+    const user: User = {
+      _id: "1",
+      name:  this.userName?.value,
+      email: this.email?.value,
+      password: this.password?.value,
+      isAdmin:false,
+      dob: this.dob?.value,
+      bloodGroup: this.bloodgroup?.value,
+      designation: this.designation?.value,
+      address: this.address?.value,
+      contact: this.phno?.value,
+      isInterested: true,
+      createdAt: date,
+      updatedAt: date,
+    };
+
+    this.serv.createUser(user);
+    console.log(user);
+  }
 
 }
-
-
