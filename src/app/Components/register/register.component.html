@@ -1,143 +1,92 @@
-<div id="body">
-    <!--side rectangles-->
-    <div class="blob1">
-        <svg height="350" width="450">
-            <defs>
-         <linearGradient id="myGradient" gradientTransform="rotate(90)">
-            <stop offset="57%"  stop-color="#ff8a8a" />
-            <stop offset="95%" stop-color="#ea3c53" />
-         </linearGradient>
-       </defs>
-           <rect id="piece"  height="350" width="450" fill="url('#myGradient')"/>
-         </svg>  
-     </div>
-     <div class="blob2">
-        <svg height="250" width="450">
-            <defs>
-         <linearGradient id="myGradient1" gradientTransform="rotate(90)">
-            <stop offset="5%"  stop-color="#ff8a8a" />
-            <stop offset="95%" stop-color="#ea3c53" />
-         </linearGradient>
-       </defs>
-           <rect id="piece"  height="250" width="450" fill="url('#myGradient1')"/>
-         </svg>  
-     </div>
-     <!--side rectangles : ends-->
+<div class="auth">
+   <!--side rectangles-->
+   <div class="blob1">
+      <svg height="350" width="450">
+         <defs>
+            <linearGradient id="myGradient" gradientTransform="rotate(90)">
+               <stop offset="57%" stop-color="#ff8a8a" />
+               <stop offset="95%" stop-color="#ea3c53" />
+            </linearGradient>
+         </defs>
+         <rect id="piece" height="350" width="450" fill="url('#myGradient')" />
+      </svg>
+   </div>
+   <div class="blob2">
+      <svg height="250" width="450">
+         <defs>
+            <linearGradient id="myGradient1" gradientTransform="rotate(90)">
+               <stop offset="5%" stop-color="#ff8a8a" />
+               <stop offset="95%" stop-color="#ea3c53" />
+            </linearGradient>
+         </defs>
+         <rect id="piece" height="250" width="450" fill="url('#myGradient1')" />
+      </svg>
+   </div>
+   <!--side rectangles : ends-->
 
-     <div class="center container">
-       
-      <div class="row ">
+   <div class="register-form">
+      <div class="row h-100">
+         <div class="col-md-6 h-100">
+            <div class="form-container h-100">
+               <div class="logo d-flex justify-content-between px-5 align-items-center w-100">
+                  <img src="assets/image/Logo.png " />
+                  <div class="page-title">
+                     <h3 class="text-center">Registration</h3>
+                  </div>
+               </div>
+               <form class="px-5 mt-4" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                  <div class="mb-3">
+                     <label for="" class="form-label">Name</label>
+                     <input autofocus [class.is-invalid]="userName?.invalid && userName?.touched"
+                        formControlName="username" class="form-control" type="text">
+                     <div *ngIf="userName?.invalid && userName?.touched">
+                        <small *ngIf="userName?.errors?.['required']" class="text-danger size">Username is
+                           Required</small>
+                     </div>
+                  </div>
+                  <div class="mb-3">
+                     <label for="" class="form-label">Email</label>
+                     <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email"
+                        class="form-control" type="email">
+                     <div *ngIf="email?.invalid && email?.touched">
+                        <small *ngIf="email?.errors?.['required']" class="text-danger size">Email is Required</small>
+                        <small class="text-danger size" *ngIf="email?.errors?.['invalidEmail']">Enter a Valid Email
+                           Address</small>
+                     </div>
+                  </div>
+                  <div class="mb-3">
+                     <label for="" class="form-label">Password</label>
+                     <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password"
+                        class="form-control" type="password" id="password" name="password">
+                     <div *ngIf="password?.invalid && password?.touched">
+                        <small *ngIf="password?.errors?.['required']" class="text-danger size">Password is
+                           Required</small>
+                        <small *ngIf="password?.errors?.['invalidPassword']" class="text-danger size">Should be min of 8
+                           characters, at least 1 uppercase,1 lowercase & 1 number</small>
+                     </div>
+                  </div>
+                  <div class="mb-3">
+                     <label for="" class="form-label">Confirm Password</label>
+                     <input [class.is-invalid]="registrationForm?.errors?.['mismatch']"
+                        formControlName="confirmpassword" class="form-control" type="password" name="cpassword">
+                     <small *ngIf="registrationForm.errors?.['mismatch']" class="text-danger size">Password
+                        Mismatch</small>
+                  </div>                  
+                  <div class="button">
+                     <button type="submit">Sign Up</button>
+                  </div>
+               </form>
+               <!-- sign up link -->
+               <div class="sign-up text-center py-3">
+                  <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+               </div>
 
-        <div class="col-sm-6">
-          
-          <div class="contain" style="height: 483px;
-          overflow-y: scroll;">
-            <div class="logo">
-              <img src="assets/image/Logo.png" width="140px"  height="115px" />
             </div>
-            
-            <div class="container">
-                <br>
-              <div class="text" style="color:#d3b284;">
-                Sign Up
-              </div>
-              <form class="container" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                <div class="data">
-                    <label>Name</label>
-                    <input autofocus [class.is-invalid]="userName?.invalid && userName?.touched" formControlName="username" class="form-control" type="text">
-                  <div *ngIf="userName?.invalid && userName?.touched">
-                     <small *ngIf="userName?.errors?.['required']" class="text-danger size">Username is Required</small>
-                  </div>
-                 </div>
-                <div class="data">
-                   <label>Email</label>
-                   <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" class="form-control" type="email">
-                  <div *ngIf="email?.invalid && email?.touched">
-                     <small *ngIf="email?.errors?.['required']" class="text-danger size">Email is Required</small>
-                     <small class="text-danger size" *ngIf="email?.errors?.['invalidEmail']">Enter a Valid Email Address</small>
-                  </div>
-                </div>
-                <div class="data">
-                    <label>Date of Birth</label>
-                    <input type="date" required name="dob" [class.is-invalid]="dob?.invalid && dob?.touched" formControlName="dob" class="form-control" >
-                  <div *ngIf="dob?.invalid && dob?.touched">
-                     <small *ngIf="dob?.errors?.['required']" class="text-danger size">Date of birth is Required</small>
-                  </div>
-                 </div>
-                 <div class="data">
-                    <label>Designation</label>
-                    <input autofocus [class.is-invalid]="designation?.invalid && designation?.touched" formControlName="designation" class="form-control" type="text">
-                    <div *ngIf="designation?.invalid && designation?.touched">
-                       <small *ngIf="designation?.errors?.['required']" class="text-danger size">Designation is Required</small>
-                    </div>
-                 </div>
-                 <div class="data">
-                    <label>Blood Group Type</label>
-                    <input [class.is-invalid]="bloodgroup?.invalid && bloodgroup?.touched" formControlName="bloodgroup" class="form-control" type="text">
-                  <div *ngIf="bloodgroup?.invalid && bloodgroup?.touched">
-                     <small *ngIf="bloodgroup?.errors?.['required']" class="text-danger size">Blood group is Required</small>
-                     <small class="text-danger size" *ngIf="bloodgroup?.errors?.['invalidbloodgroup']">Enter a valid blood group of form B+</small>
-                  </div>
-                 </div>
-               
-                 <div class="data">
-                    <label>Mobile number</label>
-                    <input [class.is-invalid]="phno?.invalid && phno?.touched" formControlName="phno" class="form-control" type="tel">
-                  <div *ngIf="phno?.invalid && phno?.touched">
-                     <small *ngIf="phno?.errors?.['required']" class="text-danger size">Mobile number is Required</small>
-                     <small class="text-danger size" *ngIf="phno?.errors?.['invalidphno']">Enter a Valid Mobile number</small>
-                  </div>
-                 </div>
-                 <div class="data" >
-                    <label>Address</label><br>
-                   <textarea rows="2" cols="43" required [class.is-invalid]="address?.invalid && address?.touched" formControlName="address" class="form-control"></textarea>
-                  <div *ngIf="address?.invalid && address?.touched">
-                     <small *ngIf="address?.errors?.['required']" class="text-danger size">Address is Required</small>
-                  </div>
-                 
-                 </div>
-                 <br>
-                <div class="data" id="address">
-                   <label>Password</label>
-                   <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password"
-                   class="form-control" type="password" id="password" name="password">
-                   <div *ngIf="password?.invalid && password?.touched">
-                     <small *ngIf="password?.errors?.['required']" class="text-danger size">Password is Required</small>
-                     <small *ngIf="password?.errors?.['invalidPassword']" class="text-danger size">Should be min of 8
-                         characters, at least 1 uppercase,1 lowercase & 1 number</small>
-                 </div>
-                  
-                </div>
-                <div class="data">
-                    <label>Confirm Password</label>
-                    <input [class.is-invalid]="registrationForm?.errors?.['mismatch']" formControlName="confirmpassword"
-                        class="form-control" type="password" name="cpassword">
-                    <small *ngIf="registrationForm.errors?.['mismatch']" class="text-danger size">Password Mismatch</small>
-                   
-                 </div>
-                 <div>
-                  <br><br>
-                    <input type="checkbox" name="showpassword" id="showpassword" (click)="showPassword()">Show Password
-                 </div>
-                <div class="btn">
-                     <button type="submit" id="register" [disabled]="!registrationForm.valid">Register</button>
-                   
-                </div> 
-                 <div class="signup-link">
-                   Already a member? <a routerLink="/login">Login now</a>
-                </div>
-             </form>
-            </div>
-           
          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="container image">
-            <img src="assets/image/sideimg.jpg" width="100%" height="482"  alt="loginimage"/>
-          </div>
-        </div>
+         <div class="col-md-6 banner-container">
+            <img src="assets/image/sideimg.jpg" width="100%" alt="loginimage" />
+         </div>
       </div>
-       
-    </div>
+   </div>
+
 </div>
-<router-outlet></router-outlet>

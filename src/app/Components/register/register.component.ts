@@ -68,20 +68,18 @@ export class RegisterComponent implements OnInit{
   }
 
   registrationForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    designation:['', Validators.required],
-    dob: ['', Validators.required],
+    username: ['', Validators.required],    
     email: ['', [Validators.required, emailValidator()]],
-    address: ['', Validators.required],
-    bloodgroup: ['',[Validators.required, bloodGroupValidator()]],
-    phno: ['', [Validators.required, mobileNumberValidator()]],
     password: ['', [Validators.required, passwordValidator()]],
     confirmpassword: ['', [Validators.required]]
   }, { validator: passwordMatch }
   )
 
   onSubmit() {
-    this.registerUser();
+    if(this.registrationForm.valid)
+      this.registerUser();
+    else
+      this.toastr.error("Please fill all the fields correctly");
   
   }
   registerUser(){

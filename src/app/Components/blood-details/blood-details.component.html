@@ -1,0 +1,68 @@
+<div class="auth">
+    <!--side rectangles-->
+    <div class="blob1">
+        <svg height="350" width="450">
+            <defs>
+                <linearGradient id="myGradient" gradientTransform="rotate(90)">
+                    <stop offset="57%" stop-color="#ff8a8a" />
+                    <stop offset="95%" stop-color="#ea3c53" />
+                </linearGradient>
+            </defs>
+            <rect id="piece" height="350" width="450" fill="url('#myGradient')" />
+        </svg>
+    </div>
+    <div class="blob2">
+        <svg height="250" width="450">
+            <defs>
+                <linearGradient id="myGradient1" gradientTransform="rotate(90)">
+                    <stop offset="5%" stop-color="#ff8a8a" />
+                    <stop offset="95%" stop-color="#ea3c53" />
+                </linearGradient>
+            </defs>
+            <rect id="piece" height="250" width="450" fill="url('#myGradient1')" />
+        </svg>
+    </div>
+    <!--side rectangles : ends-->
+
+    <div class="register-form">
+        <div class="row h-100">
+            <div class="col-md-6 h-100">
+                <div class="form-container h-100">
+                    <div class="logo d-flex justify-content-between px-5 align-items-center w-100">
+                        <img src="assets/image/Logo.png " />
+                        <div class="page-title">
+                            <h3 class="text-center">Enter Blood Group Details</h3>
+                        </div>
+                    </div>
+                    <form class="px-5 mt-4" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Blood Group</label>
+                            <select class="form-control" formControlName="bloodgroup" required>
+                                <option value="" disabled selected>Select Blood Group</option>
+                                <!-- ng-for bloodgroups -->
+                                <option *ngFor="let bloodgroup of bloodGroups" [value]="bloodgroup._id">{{ bloodgroup.bloodType }}</option>
+                            </select>
+                        </div>
+                        <!-- is interested in donation -->
+                        <div class="mb-3">
+                            <label for="" class="form-label">Is Interested In Donating</label>
+                            <select class="form-control" formControlName="isInterested" id="" required>
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="true" >Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="button">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <!-- sign up link -->
+                </div>
+            </div>
+            <div class="col-md-6 banner-container">
+                <img src="assets/image/sideimg.jpg" width="100%" alt="loginimage" />
+            </div>
+        </div>
+    </div>
+
+</div>

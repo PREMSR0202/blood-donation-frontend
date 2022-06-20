@@ -1,79 +1,69 @@
-<div id="body">
-    <!--side rectangles-->
-    <div class="blob1">
-        <svg height="350" width="450">
-            <defs>
-         <linearGradient id="myGradient" gradientTransform="rotate(90)">
-            <stop offset="57%"  stop-color="#ff8a8a" />
-            <stop offset="95%" stop-color="#ea3c53" />
-         </linearGradient>
-       </defs>
-           <rect id="piece"  height="350" width="450" fill="url('#myGradient')"/>
-         </svg>  
-     </div>
-     <div class="blob2">
-        <svg height="250" width="450">
-            <defs>
-         <linearGradient id="myGradient1" gradientTransform="rotate(90)">
-            <stop offset="5%"  stop-color="#ff8a8a" />
-            <stop offset="95%" stop-color="#ea3c53" />
-         </linearGradient>
-       </defs>
-           <rect id="piece"  height="250" width="450" fill="url('#myGradient1')"/>
-         </svg>  
-     </div>
-     <!--side rectangles : ends-->
+<div class="auth">
+  <!--side rectangles-->
+  <div class="blob1">
+    <svg height="350" width="450">
+      <defs>
+        <linearGradient id="myGradient" gradientTransform="rotate(90)">
+          <stop offset="57%" stop-color="#ff8a8a" />
+          <stop offset="95%" stop-color="#ea3c53" />
+        </linearGradient>
+      </defs>
+      <rect id="piece" height="350" width="450" fill="url('#myGradient')" />
+    </svg>
+  </div>
+  <div class="blob2">
+    <svg height="250" width="450">
+      <defs>
+        <linearGradient id="myGradient1" gradientTransform="rotate(90)">
+          <stop offset="5%" stop-color="#ff8a8a" />
+          <stop offset="95%" stop-color="#ea3c53" />
+        </linearGradient>
+      </defs>
+      <rect id="piece" height="250" width="450" fill="url('#myGradient1')" />
+    </svg>
+  </div>
+  <!--side rectangles : ends-->
 
-     <div class="center container">
-       
-      <div class="row ">
-
-        <div class="col-sm-6">
-          
-          <div class="contain">
-            <div class="logo">
-              <img src="assets/image/Logo.png" width="140px"  height="115px" />
-            </div>
-            
-            <div class="container">
-                <br>
-              <div class="text" style="color:#d3b284;">
-                Sign In
+    <div class="login-form">
+      <div class="row h-100">
+        <div class="col-md-6 h-100">
+          <div class="form-container h-100">
+            <div class="logo d-flex justify-content-between px-5 align-items-center w-100">
+              <img src="assets/image/Logo.png "  />
+              <div class="page-title">
+                <h3 class="text-center">Login</h3>
               </div>
-              <form class="container" (ngSubmit)="submit()">
-                <div class="data">
-                   <label>Email or Phone</label>
-                   <input type="email" autofocus required name="email" [(ngModel)]="loginForm.email">
-                </div>
-                <div class="data">
-                   <label>Password</label>
-                   <input type="password"  required name="password" [(ngModel)]="loginForm.password">
-                  <i class="far fa-eye" id="togglePassword" (click)="eyeIcon()" ></i>
-                </div>
-                <div class="forgot-pass">
-                   <a href="#">Forgot Password?</a>
-                </div>
-                <br>
-                <div class="btn">
-                   
-                     <button type="submit">login</button>
-                   
-                </div>
-             </form>
-             <div class="signup-link">
-              Not a member? <a routerLink="/register" >Signup now</a>
-           </div>
             </div>
-           
-         </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="container image">
-            <img src="assets/image/sideimg.jpg" width="100%" height="482"  alt="loginimage"/>
+              <form class="px-5 mt-4" (ngSubmit)="submit()">
+                <div class="mb-3">
+                  <label for="" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="loginForm.email">
+                </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">Password</label>
+                  <div class="password">
+                    <input type="password" class="form-control" required name="password" placeholder="Enter Password" [(ngModel)]="loginForm.password">
+                    <i class="far fa-eye" id="togglePassword" (click)="eyeIcon()"></i>
+                  </div>
+                  <div class="forgot-password">
+                    <a href="">Forgot Password?</a>
+                  </div>
+                </div>
+                <div class="button">
+                  <button type="submit" >Login</button>
+                </div>
+              </form>
+              <!-- sign up link -->
+              <div class="sign-up text-center py-3">
+                <p>Don't have an account? <a routerLink="/register">Sign up</a></p>
+              </div>
+
           </div>
         </div>
+        <div class="col-md-6 banner-container">
+          <img src="assets/image/sideimg.jpg" width="100%"  alt="loginimage" />
+        </div>
       </div>
-       
     </div>
+
 </div>
-<router-outlet></router-outlet>

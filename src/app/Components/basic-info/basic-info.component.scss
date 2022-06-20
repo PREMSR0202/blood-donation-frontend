@@ -1,0 +1,159 @@
+#togglePassword {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  
+  }
+  .auth{
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .blob1 {
+    position: absolute;
+    top: -90px;
+    right: 0;
+    z-index: -1;
+    margin: 0px;
+    @media screen and (max-width: 768px) {
+      display: none;    
+    }
+  }
+  .blob2 {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    @media screen and (max-width: 768px) {
+      display: none;    
+    }
+  }
+  .auth{
+    .register-form{
+      height: 80vh;
+      padding: 0;
+      margin: 10vh auto;
+      max-width: 1280px;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      @media screen and (max-width: 1280px){
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        
+      }
+     ::-webkit-scrollbar {
+            position: fixed;
+            width: 6px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #F9F9F9; 
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #606060; 
+            border-radius: 5px;
+        }
+      .form-container{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        justify-content: flex-start;
+        @media screen and (min-width: 1920px) {
+          padding-top: 5%;
+          padding-bottom: 5%;
+          justify-content: center;              
+        }
+        @media screen and (max-width: 768px){
+          justify-content: flex-start;
+          padding-bottom: 5%;
+        }           
+        .logo{
+          img{
+            width: 120px;
+            height: 120px;
+          }
+        }
+        .page-title{
+          h3{
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+            color: #e2ab60;
+          }
+        }
+        form{
+          .form-control{
+            border-radius: 5px;
+          }
+          .form-control:focus{          
+            outline: 2px solid #e2ab60;
+            border-color: #e2ab60;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+          }
+          .password{
+            position: relative;
+          }
+          .forgot-password{
+            margin: 10px 0;          
+          }
+        }
+        a{
+          color: #e2ab60;
+          font-size: 15px;
+          font-weight: 500;            
+        }
+      }
+      .banner-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 768px){
+          display: none;      
+          
+        }
+      }
+    }
+  }
+  form .button {
+    width: 100%;
+    background: -webkit-linear-gradient(
+      right,
+      rgb(255, 130, 130),
+      rgb(255, 96, 79)
+    );
+    border-radius: 5px;
+  }
+  
+  
+  form .button button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .toast {
+    display: block;
+    margin: 0px auto;
+  }
+  

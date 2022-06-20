@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api : 'http://blooddonationapp-env.eba-bjdtpx52.us-east-1.elasticbeanstalk.com/'
+  api : 'http://localhost:8080/'
 };
 
 /*

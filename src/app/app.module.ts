@@ -13,12 +13,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { BasicInfoComponent } from './Components/basic-info/basic-info.component';
+import { BloodDetailsComponent } from './Components/blood-details/blood-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BasicInfoComponent,
+    BloodDetailsComponent
   ],
   imports: [
     BrowserModule,

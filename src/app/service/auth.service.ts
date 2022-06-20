@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthData } from '../Components/auth-data';
+import { bloodGroup } from '../interfaces/bloodGroup';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -167,6 +169,53 @@ export class AuthService {
     )
   }
 
-  
+  hasRequiredFields() :Observable<User> {
+    return this.http.get<User>(this.apiUrl+'status/')
+  }
+
+  storeBasicInfo(user: User) {
+    return this.http.patch(this.apiUrl+'updateuser/'+user._id, user).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Basic Information Updated !','',{
+          timeOut: 2000,
+          closeButton :true
+        });
+        this.router.navigate(['/blood-group-details']);
+      },
+      (error) => {
+        console.log(error);
+        this.toastr.error(error.error,'',{
+          timeOut: 2000,
+          closeButton :true
+        });
+      }
+    )
+  }
+
+  fetchAllBloodGroups(): Observable<bloodGroup[]> {
+    return this.http.get<bloodGroup[]>(this.apiUrl+'allBloodGroup/')
+  }
+
+  storeBloodGroup(user: User) {
+    return this.http.patch(this.apiUrl+'updateuser/'+user._id, user).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Blood Group Updated !','',{
+          timeOut: 2000,
+          closeButton :true
+        });
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
+        this.toastr.error(error.error,'',{
+          timeOut: 2000,
+          closeButton :true
+        });
+      }
+    )
+  }
+ 
   
 }
