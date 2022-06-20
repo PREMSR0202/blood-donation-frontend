@@ -9,8 +9,11 @@ import { UserModule } from './user/user.module';
 
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +26,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     AdminModule,
     UserModule,
+    FormsModule,
     ReactiveFormsModule,
     NoopAnimationsModule,
+    ToastrModule.forRoot(), // ToastrModule added
+
   ],
   providers: [],
   bootstrap: [AppComponent]

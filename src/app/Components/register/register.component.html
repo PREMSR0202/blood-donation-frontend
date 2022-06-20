@@ -41,48 +41,86 @@
               <div class="text" style="color:#d3b284;">
                 Sign Up
               </div>
-              <form class="container">
+              <form class="container" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                 <div class="data">
                     <label>Name</label>
-                    <input type="text"  autofocus required>
+                    <input autofocus [class.is-invalid]="userName?.invalid && userName?.touched" formControlName="username" class="form-control" type="text">
+                  <div *ngIf="userName?.invalid && userName?.touched">
+                     <small *ngIf="userName?.errors?.['required']" class="text-danger size">Username is Required</small>
+                  </div>
                  </div>
                 <div class="data">
-                   <label>Email or Phone</label>
-                   <input type="email" required>
+                   <label>Email</label>
+                   <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email" class="form-control" type="email">
+                  <div *ngIf="email?.invalid && email?.touched">
+                     <small *ngIf="email?.errors?.['required']" class="text-danger size">Email is Required</small>
+                     <small class="text-danger size" *ngIf="email?.errors?.['invalidEmail']">Enter a Valid Email Address</small>
+                  </div>
                 </div>
                 <div class="data">
                     <label>Date of Birth</label>
-                    <input type="date" required>
+                    <input type="date" required name="dob" [class.is-invalid]="dob?.invalid && dob?.touched" formControlName="dob" class="form-control" >
+                  <div *ngIf="dob?.invalid && dob?.touched">
+                     <small *ngIf="dob?.errors?.['required']" class="text-danger size">Date of birth is Required</small>
+                  </div>
                  </div>
                  <div class="data">
                     <label>Designation</label>
-                    <input type="text" required>
+                    <input autofocus [class.is-invalid]="designation?.invalid && designation?.touched" formControlName="designation" class="form-control" type="text">
+                    <div *ngIf="designation?.invalid && designation?.touched">
+                       <small *ngIf="designation?.errors?.['required']" class="text-danger size">Designation is Required</small>
+                    </div>
                  </div>
                  <div class="data">
                     <label>Blood Group Type</label>
-                    <input type="text" required>
+                    <input [class.is-invalid]="bloodgroup?.invalid && bloodgroup?.touched" formControlName="bloodgroup" class="form-control" type="text">
+                  <div *ngIf="bloodgroup?.invalid && bloodgroup?.touched">
+                     <small *ngIf="bloodgroup?.errors?.['required']" class="text-danger size">Blood group is Required</small>
+                     <small class="text-danger size" *ngIf="bloodgroup?.errors?.['invalidbloodgroup']">Enter a valid blood group of form B+</small>
+                  </div>
                  </div>
                
                  <div class="data">
-                    <label>Phone number</label>
-                    <input type="tel" required>
+                    <label>Mobile number</label>
+                    <input [class.is-invalid]="phno?.invalid && phno?.touched" formControlName="phno" class="form-control" type="tel">
+                  <div *ngIf="phno?.invalid && phno?.touched">
+                     <small *ngIf="phno?.errors?.['required']" class="text-danger size">Mobile number is Required</small>
+                     <small class="text-danger size" *ngIf="phno?.errors?.['invalidphno']">Enter a Valid Mobile number</small>
+                  </div>
                  </div>
-                 <div class="data">
+                 <div class="data" >
                     <label>Address</label><br>
-                   <textarea rows="3" cols="45"></textarea>
+                   <textarea rows="2" cols="43" required [class.is-invalid]="address?.invalid && address?.touched" formControlName="address" class="form-control"></textarea>
+                  <div *ngIf="address?.invalid && address?.touched">
+                     <small *ngIf="address?.errors?.['required']" class="text-danger size">Address is Required</small>
+                  </div>
+                 
                  </div>
-                <br>
-                <div class="data">
+                 <br>
+                <div class="data" id="address">
                    <label>Password</label>
-                   <input type="password"  required>
+                   <input [class.is-invalid]="password?.invalid && password?.touched" formControlName="password"
+                   class="form-control" type="password" id="password" name="password">
+                   <div *ngIf="password?.invalid && password?.touched">
+                     <small *ngIf="password?.errors?.['required']" class="text-danger size">Password is Required</small>
+                     <small *ngIf="password?.errors?.['invalidPassword']" class="text-danger size">Should be min of 8
+                         characters, at least 1 uppercase,1 lowercase & 1 number</small>
+                 </div>
+                  
                 </div>
                 <div class="data">
                     <label>Confirm Password</label>
-                    <input type="password"  required>
+                    <input [class.is-invalid]="registrationForm?.errors?.['mismatch']" formControlName="confirmpassword"
+                        class="form-control" type="password" name="cpassword">
+                    <small *ngIf="registrationForm.errors?.['mismatch']" class="text-danger size">Password Mismatch</small>
+                   
+                 </div>
+                 <div>
+                  <br><br>
+                    <input type="checkbox" name="showpassword" id="showpassword" (click)="showPassword()">Show Password
                  </div>
                 <div class="btn">
-                   
-                     <button type="submit">Register</button>
+                     <button type="submit" id="register" [disabled]="!registrationForm.valid">Register</button>
                    
                 </div> 
                  <div class="signup-link">

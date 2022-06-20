@@ -6,7 +6,11 @@
     width: 100%;
     font-family: cursive;
 }
-
+#togglePassword
+{
+  margin-left: -30px; 
+cursor: pointer;
+}
 .blob1{
   position:absolute;
   top:-90px;
@@ -61,8 +65,9 @@
     margin: 50px 0;
     }
     form .data label{
-    font-size: 15px;
+    font-size: 13px;
     color: rgb(46, 0, 0);
+    margin-top: 20px;
     }
     form .data input{
     height: 100%;
@@ -130,8 +135,11 @@
     text-decoration: underline;
     }
 
-#togglePassword 
+.size 
 {
-    margin-left: -30px; 
-    cursor: pointer;
+  font-size: 12px;
+}
+#address
+{
+  margin-top: 35px;
 }
