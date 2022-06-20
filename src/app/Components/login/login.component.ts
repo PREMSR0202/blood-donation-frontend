@@ -32,15 +32,13 @@ export class LoginComponent implements OnInit {
   
 
   submit() {
-   
-    if(this.email.length > 0 && this.password.length > 0 )
+    var email = document.getElementsByName("email")[0] as HTMLInputElement;
+    var pass = document.getElementsByName("password")[0] as HTMLInputElement;
+    this.email = email.value;
+    this.password = pass.value;
+    if(email.value.length > 0 && pass.value.length > 0 )
     {
-      this.toastr.success('Login Successful !','',{
-        timeOut: 2000,
-        closeButton :true
-      });
       this.loginUser();
-      this.router.navigate(['/'])
     }
     else 
     {
@@ -54,7 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
-     this.serv.loginUser(this.email, this.password);
+     this.auth.login(this.email, this.password);
   }
   
 

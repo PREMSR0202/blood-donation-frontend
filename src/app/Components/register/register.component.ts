@@ -81,19 +81,13 @@ export class RegisterComponent implements OnInit{
   )
 
   onSubmit() {
-    this.toastr.success('Registration successful ! Please Login now !','',{
-      timeOut: 3500,
-      closeButton :true
-    });
     this.registerUser();
-    this.router.navigate(['/login'])
   
   }
   registerUser(){
     const date = new Date();
 
     const user: User = {
-      _id: "1",
       name:  this.userName?.value,
       email: this.email?.value,
       password: this.password?.value,
@@ -108,8 +102,7 @@ export class RegisterComponent implements OnInit{
       updatedAt: date,
     };
 
-    this.serv.createUser(user);
-    console.log(user);
+    this.auth.createUser(user.email, user.password, user.name);
   }
 
 }
