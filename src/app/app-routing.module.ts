@@ -7,6 +7,7 @@ import { BloodDetailsComponent } from './Components/blood-details/blood-details.
 import { GuestGuard } from './Components/guest.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { RequestFormComponent } from './Components/request-form/request-form.component';
 import { RequiredfieldsGuard } from './Components/requiredfields.guard';
 import { UserGuard } from './Components/user.guard';
 
@@ -35,7 +36,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, UserGuard, RequiredfieldsGuard]
   },
   {path: 'login' , component: LoginComponent, canActivate: [GuestGuard]},
-  {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]}
+  {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]},
+  {path: 'requestform', component:RequestFormComponent, canActivate: [GuestGuard]}
 ];
 
 // const routes: Routes = [];

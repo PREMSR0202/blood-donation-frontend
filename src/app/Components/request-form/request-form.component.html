@@ -1,0 +1,112 @@
+<div class="auth">
+    <!--side rectangles-->
+    <div class="blob1">
+        <svg height="350" width="450">
+            <defs>
+                <linearGradient id="myGradient" gradientTransform="rotate(90)">
+                    <stop offset="57%" stop-color="#ff8a8a" />
+                    <stop offset="95%" stop-color="#ea3c53" />
+                </linearGradient>
+            </defs>
+            <rect id="piece" height="350" width="450" fill="url('#myGradient')" />
+        </svg>
+    </div>
+    <div class="blob2">
+        <svg height="250" width="450">
+            <defs>
+                <linearGradient id="myGradient1" gradientTransform="rotate(90)">
+                    <stop offset="5%" stop-color="#ff8a8a" />
+                    <stop offset="95%" stop-color="#ea3c53" />
+                </linearGradient>
+            </defs>
+            <rect id="piece" height="250" width="450" fill="url('#myGradient1')" />
+        </svg>
+    </div>
+    <!--side rectangles : ends-->
+
+    <div class="register-form">
+        <div class="row h-100">
+            <div class="col-md-6 h-100">
+                <div class="form-container h-100">
+                    <div class="logo d-flex justify-content-between px-5 align-items-center w-100">
+                        <img src="assets/image/Logo.png " />
+                        <div class="page-title">
+                            <h3 class="text-center">Request for Blood Donor</h3>
+                        </div>
+                    </div>
+                    <form class="px-5 mt-4" [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Name</label>
+                            <input autofocus [class.is-invalid]="userName?.invalid && userName?.touched"
+                               formControlName="username" class="form-control" type="text">
+                            <div *ngIf="userName?.invalid && userName?.touched">
+                               <small *ngIf="userName?.errors?.['required']" class="text-danger size">Username is
+                                  Required</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email</label>
+                            <input [class.is-invalid]="email?.invalid && email?.touched" formControlName="email"
+                               class="form-control" type="email">
+                            <div *ngIf="email?.invalid && email?.touched">
+                               <small *ngIf="email?.errors?.['required']" class="text-danger size">Email is Required</small>
+                               <small class="text-danger size" *ngIf="email?.errors?.['invalidEmail']">Enter a Valid Email
+                                  Address</small>
+                            </div>
+                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Mobile Number</label>
+                            <input [class.is-invalid]="phno?.invalid && phno?.touched" formControlName="phno"
+                                class="form-control" type="tel">
+                            <div *ngIf="phno?.invalid && phno?.touched">
+                                <small *ngIf="phno?.errors?.['required']" class="text-danger size">Mobile number is
+                                    Required</small>
+                                <small class="text-danger size" *ngIf="phno?.errors?.['invalidphno']">Enter a Valid
+                                    Mobile number</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Blood Group</label>
+                            <select class="form-control" formControlName="bloodgroup" required>
+                                <option value="" disabled selected>Select Blood Group</option>
+                                <!-- ng-for bloodgroups -->
+                                <option *ngFor="let bloodgroup of bloodGroups" [value]="bloodgroup._id">{{ bloodgroup.bloodType }}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Required Date</label>
+                            <input type="date" required name="reqdate" [class.is-invalid]="reqdate?.invalid && reqdate?.touched"
+                                formControlName="reqdate" class="form-control" id="reqdate" min="{{todayDate}}">
+                            <div *ngIf="reqdate?.invalid && reqdate?.touched">
+                                <small *ngIf="reqdate?.errors?.['required']" class="text-danger size">Date is required</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Address</label>
+                            <textarea rows="2" cols="43" required
+                                [class.is-invalid]="address?.invalid && address?.touched" formControlName="address"
+                                class="form-control"></textarea>
+                            <div *ngIf="address?.invalid && address?.touched">
+                                <small *ngIf="address?.errors?.['required']" class="text-danger size">Address is
+                                    Required</small>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="button">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <br>
+                    <!-- sign in link -->
+                    <div class="sign-up text-center py-3">
+                        <p>Back to <a routerLink="/login">Login</a></p>
+                     </div>
+                </div>
+            </div>
+            <div class="col-md-6 banner-container">
+                <img src="https://media.istockphoto.com/vectors/doctor-monitors-blood-transfusion-into-plastic-container-donation-vector-id1350664630?k=20&m=1350664630&s=612x612&w=0&h=nmo_i-tpRXB4wUNf9V47pfmevxB0fPgMhOAqmk5WQvE=" width="100%" alt="loginimage" />
+            </div>
+        </div>
+    </div>
+
+</div>
