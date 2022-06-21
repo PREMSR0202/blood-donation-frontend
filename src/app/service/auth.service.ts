@@ -48,6 +48,8 @@ export class AuthService {
     this.isAdmin = false;
     this.userId = '';
     this.authStateListener.next(false);
+    localStorage.clear();
+    location.reload();
   }
 
   login(email: string, password: string) {

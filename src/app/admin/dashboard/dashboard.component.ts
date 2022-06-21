@@ -83,7 +83,6 @@ export class DashboardComponent implements OnInit {
   delete(){
     this.userdetails.deleteuser(this.userDelete._id !).subscribe(res =>{
       console.log("Sucessful");
-      // this.userDelete ?= {};
       let id = document.getElementById('exit');
       id?.click();
       this.userdetails.allusers().subscribe(res=>{
