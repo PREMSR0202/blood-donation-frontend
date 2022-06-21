@@ -76,8 +76,8 @@
                                 <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
                                     (dragEnd)="markerDragEnd($event)"></agm-marker>
                             </agm-map>
-                            <input type="hidden" [value]="latitude" name="lat" formControlName="lat">
-                            <input type="hidden" [value]="longitude" name="lng" formControlName="lng">                            
+                            <input type="hidden" [value]="latitude" >
+                            <input type="hidden" [value]="longitude">                            
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Date of Birth</label>

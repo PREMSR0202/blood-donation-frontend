@@ -132,8 +132,6 @@ getAddress(latitude: number, longitude: number) {
     designation: ['', [Validators.required]],
     address: ['', [Validators.required]],
     phno: ['', [Validators.required, mobileNumberValidator()]],
-    lat: ['', [Validators.required]],
-    lng: ['', [Validators.required]],
   });
 
   onSubmit() {
