@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   email = this.loginForm.email;
   password = this.loginForm.password;
   ngOnInit(): void {
-    this.auth.login("test@gmail.com", "Test@123")
   }   
   eyeIcon(){
     var x = document.getElementsByName("password")[0] as HTMLInputElement;

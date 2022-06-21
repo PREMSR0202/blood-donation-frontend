@@ -169,6 +169,15 @@ export class AuthService {
     )
   }
 
+  user(): Observable<User> {
+    return this.http.get<User>(this.apiUrl+'currentUser/')
+  }
+
+  setIsAdmin(isAdmin: boolean) {
+    this.isAdmin = isAdmin;
+    localStorage.setItem('isAdmin', this.isAdmin.toString());
+  }
+
   hasRequiredFields() :Observable<User> {
     return this.http.get<User>(this.apiUrl+'status/')
   }

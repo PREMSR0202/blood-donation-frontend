@@ -13,12 +13,21 @@ export class UserGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const isAdmin = this.auth.getIsAdmin() ? true : false;
-    if(isAdmin){
-      this.router.navigate(['/admin']);
-      return false;
-    }
-    
+      let isAdmin;
+    this.auth.user().subscribe(
+      (response : any) => {
+        isAdmin = response.isAdmin;
+        if (isAdmin) {
+          this.router.navigate(['/admin']);
+          return false;
+        }
+        return true;
+      },
+      (error : any) => {
+        this.router.navigate(['/login']);
+        return false;
+      }
+    )
     return true;
   }
   
