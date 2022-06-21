@@ -15,6 +15,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BasicInfoComponent } from './Components/basic-info/basic-info.component';
 import { BloodDetailsComponent } from './Components/blood-details/blood-details.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,10 @@ import { BloodDetailsComponent } from './Components/blood-details/blood-details.
     ReactiveFormsModule,
     NoopAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
-
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDCYx_gzFFPyt0dGPSNNHfsUPhsx78GiMo',
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

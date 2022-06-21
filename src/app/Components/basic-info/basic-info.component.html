@@ -66,6 +66,20 @@
                             </div>
                         </div>
                         <div class="mb-3">
+                            <label for="">Select Your Exact Location</label>
+                            <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+                                placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off"
+                                spellcheck="off" type="text" #search>
+                        </div>
+                        <div class="mb-3">
+                            <agm-map [latitude]="latitude" [longitude]="longitude" >
+                                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                                    (dragEnd)="markerDragEnd($event)"></agm-marker>
+                            </agm-map>
+                            <input type="hidden" [value]="latitude" name="lat" formControlName="lat">
+                            <input type="hidden" [value]="longitude" name="lng" formControlName="lng">                            
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Date of Birth</label>
                             <input type="date" required name="dob" [class.is-invalid]="dob?.invalid && dob?.touched"
                                 formControlName="dob" class="form-control">

@@ -13,4 +13,6 @@ export interface User {
     isInterested: boolean;
     createdAt: Date;
     updatedAt: Date;
+    lat?: number;
+    lng?: number;
   }
