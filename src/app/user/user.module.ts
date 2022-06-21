@@ -4,13 +4,15 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
+import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-group.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    UserComponent
+    UserComponent,
+    BloodDonarsGroupComponent
   ],
   imports: [
     CommonModule,

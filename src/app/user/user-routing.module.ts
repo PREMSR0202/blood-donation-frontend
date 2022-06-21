@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../Components/auth.guard';
 import { RequiredfieldsGuard } from '../Components/requiredfields.guard';
 import { UserGuard } from '../Components/user.guard';
+import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-group.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user.component';
@@ -12,7 +13,8 @@ const routes : Routes = [
         path: '', component: UserComponent,
         canActivate: [AuthGuard, UserGuard,RequiredfieldsGuard], 
         children: [
-            { path: 'user', component: DashboardComponent }
+            { path: "", component: DashboardComponent },
+            { path: "bloodgroup", component: BloodDonarsGroupComponent}
         ]
     }
 ];
