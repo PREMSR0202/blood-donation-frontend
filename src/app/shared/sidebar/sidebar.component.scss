@@ -2,27 +2,31 @@
     margin: 0;
     padding: 0;
     width: 200px;
+    font-family: cursive;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
+    box-shadow: 2px 2px gainsboro;
     overflow: auto;
   }
   
   .sidebar a {
     display: block;
     color: black;
-    padding: 16px;
+    padding: 19px;
     text-decoration: none;
   }
    
   .sidebar a.active {
-    background-color: #E85E4F;
+    background-color: rgb(119, 119, 119);
     color: white;
+    cursor: pointer;
   }
   
   .sidebar a:hover:not(.active) {
-    background-color: lightcoral;
+    background-color: rgb(155, 155, 155);
     color: white;
+    cursor: pointer;
   }
   
   div.content {
