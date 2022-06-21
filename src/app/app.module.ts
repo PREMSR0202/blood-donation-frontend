@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BasicInfoComponent } from './Components/basic-info/basic-info.component';
 import { BloodDetailsComponent } from './Components/blood-details/blood-details.component';
 import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AgmCoreModule } from '@agm/core';
     NoopAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDCYx_gzFFPyt0dGPSNNHfsUPhsx78GiMo',
+      apiKey: environment.gapi,
       libraries: ['places']
     })
   ],
