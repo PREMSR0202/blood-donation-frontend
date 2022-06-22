@@ -1,3 +1,4 @@
+import { BlooddonationComponent } from './blooddonation/blooddonation.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminGuard } from "../Components/admin.guard";
@@ -8,14 +9,15 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 
 
 const routes: Routes = [
-    { 
-        path: "", component: AdminComponent,     
-        children:[
+    {
+        path: "", component: AdminComponent,
+        children: [
             { path: "", component: DashboardComponent },
-            {path: "bloodgroups", component: BloodgroupsComponent}
+            { path: "bloodgroups", component: BloodgroupsComponent },
+            { path: "blooddonation", component: BlooddonationComponent }
         ]
     }
-    
+
 ];
 
 @NgModule({

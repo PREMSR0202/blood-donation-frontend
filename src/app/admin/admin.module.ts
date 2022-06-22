@@ -6,12 +6,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BloodgroupsComponent } from './bloodgroups/bloodgroups.component';
+import { BlooddonationComponent } from './blooddonation/blooddonation.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminComponent,
-    BloodgroupsComponent,    
+    BloodgroupsComponent,
+    BlooddonationComponent,    
   ],
   imports: [
     CommonModule,
