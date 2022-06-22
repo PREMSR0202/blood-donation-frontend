@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     // add authorization header with jwt token if available
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('idToken');
     if (token) {
       request = request.clone({
         setHeaders: {

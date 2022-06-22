@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/service/auth.service';
+import { CognitoService } from 'src/app/service/cognito.service';
 import { EmployeesService } from 'src/app/service/user/employees.service';
 import { mobileNumberValidator } from 'src/app/validator/registration.validator';
 
@@ -20,7 +21,8 @@ export class BasicInfoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private cognito: CognitoService,
   ) {}
 
   userId: any = '';
@@ -34,7 +36,9 @@ export class BasicInfoComponent implements OnInit {
   public searchElementRef!: ElementRef;
 
   ngOnInit(): void {
-    this.userId = localStorage.getItem('userId');
+    this.auth.user().subscribe((user) => {      
+      this.userId = user._id;
+    })
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -128,6 +132,7 @@ getAddress(latitude: number, longitude: number) {
   }
 
   registrationForm = this.formBuilder.group({
+    username: ['', [Validators.required]],
     dob: ['', Validators.required],
     designation: ['', [Validators.required]],
     address: ['', [Validators.required]],

@@ -9,8 +9,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 
 const routes: Routes = [
     { 
-        path: "", component: AdminComponent, 
-        canActivate: [AuthGuard, AdminGuard],       
+        path: "", component: AdminComponent,     
         children:[
             { path: "", component: DashboardComponent },
             {path: "bloodgroups", component: BloodgroupsComponent}

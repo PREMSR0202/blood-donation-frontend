@@ -1,34 +1,42 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../service/auth.service';
+import { CognitoService } from '../service/cognito.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserGuard implements CanActivate {
-  
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private cognitoService: CognitoService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let isAdmin;
-    this.auth.user().subscribe(
-      (response : any) => {
-        isAdmin = response.isAdmin;
-        if (isAdmin) {
-          this.router.navigate(['/admin']);
-          return false;
-        }
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    this.cognitoService.isLoadingSubject.next(true);
+
+    return this.cognitoService.getUser().then((user) => {
+      if (user && user.attributes['custom:role'] === 'user') {
+        this.cognitoService.isLoadingSubject.next(false);
         return true;
-      },
-      (error : any) => {
-        this.router.navigate(['/login']);
+      } 
+      else {
+        this.cognitoService.isLoadingSubject.next(true);
+        this.router.navigate(['/login'], {
+          queryParams: { state: 'not-a-user' },
+        });
         return false;
       }
-    )
-    return true;
+    });
   }
-  
 }

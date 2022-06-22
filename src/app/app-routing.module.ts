@@ -9,30 +9,37 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { RequiredfieldsGuard } from './Components/requiredfields.guard';
 import { UserGuard } from './Components/user.guard';
+import { VerifyComponent } from './Components/verify/verify.component';
 
 const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuard, AdminGuard],
-    data: {
-      isAdmin: true
-    }
+    // data: {
+    //   isAdmin: true
+    // }
   },
   {
     path: '',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
-    canActivate: [AuthGuard, UserGuard,RequiredfieldsGuard]    
+    canActivate: [AuthGuard, UserGuard, RequiredfieldsGuard]    
   },
   {
     path: 'basic-info',
     component: BasicInfoComponent,
-    canActivate: [AuthGuard, UserGuard, RequiredfieldsGuard]
+    // canActivate: [AuthGuard, UserGuard]   
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'blood-group-details',
     component: BloodDetailsComponent,
-    canActivate: [AuthGuard, UserGuard, RequiredfieldsGuard]
+    canActivate: [AuthGuard, UserGuard]
+  },
+  {
+    path: 'verify-email',
+    component: VerifyComponent,
+    canActivate:[GuestGuard]
   },
   {path: 'login' , component: LoginComponent, canActivate: [GuestGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]}

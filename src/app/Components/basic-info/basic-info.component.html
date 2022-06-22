@@ -36,6 +36,15 @@
                     </div>
                     <form class="px-5 mt-4" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                         <div class="mb-3">
+                            <label for="" class="form-label">Name</label>
+                            <input autofocus [class.is-invalid]="userName?.invalid && userName?.touched"
+                               formControlName="username" class="form-control" type="text">
+                            <div *ngIf="userName?.invalid && userName?.touched">
+                               <small *ngIf="userName?.errors?.['required']" class="text-danger size">Username is
+                                  Required</small>
+                            </div>
+                         </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Designation</label>
                             <input autofocus [class.is-invalid]="designation?.invalid && designation?.touched"
                                 formControlName="designation" class="form-control" type="text">

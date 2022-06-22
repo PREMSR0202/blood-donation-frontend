@@ -29,7 +29,9 @@ export class BloodDetailsComponent implements OnInit {
   bloodGroup!: bloodGroup;
 
   ngOnInit(): void {
-    this.userId = localStorage.getItem('userId');
+    this.auth.user().subscribe((user) => {      
+      this.userId = user._id;
+    })
     this.auth.fetchAllBloodGroups().subscribe(
       (res: any) => {
         this.bloodGroups = res;

@@ -1,3 +1,10 @@
 <ng-container *ngIf="!loading">
     <router-outlet></router-outlet>
 </ng-container>
+<div class="loader" *ngIf="loading">
+    <div class="d-flex justify-content-center h-100 align-items-center">
+        <div class="spinner-grow text-danger" style="width: 5rem; height: 5rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>

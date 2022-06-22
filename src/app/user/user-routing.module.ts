@@ -10,7 +10,6 @@ import { UserComponent } from './user.component';
 const routes : Routes = [
     {
         path: '', component: UserComponent,
-        canActivate: [AuthGuard, UserGuard,RequiredfieldsGuard], 
         children: [
             { path: 'user', component: DashboardComponent }
         ]

@@ -20,6 +20,8 @@ export class AuthService {
   private authStateListener = new Subject<boolean>();
   private apiUrl = environment.api;
 
+  isRequiredFieldsFilled : boolean = false;
+
   constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) { }
 
   getToken() {
@@ -159,9 +161,7 @@ export class AuthService {
         this.userId = response._id;        
       },
       (error) => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('isAdmin');
-        localStorage.removeItem('userId');
+        localStorage.clear();
         this.isAuthenticated = false;
         this.isAdmin = false;
         this.userId = '';
@@ -180,7 +180,7 @@ export class AuthService {
     localStorage.setItem('isAdmin', this.isAdmin.toString());
   }
 
-  hasRequiredFields() :Observable<User> {
+  hasRequiredFields() {
     return this.http.get<User>(this.apiUrl+'status/')
   }
 

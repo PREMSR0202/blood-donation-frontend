@@ -1,25 +1,39 @@
+import { CognitoService } from '../service/cognito.service';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../service/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router) {
-    this.auth.getCurrentUser();
-   }
+  constructor(private cognitoService: CognitoService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {    
-    if (this.auth.checkAuthState()) {
-      return true;
-    } else {
-      this.router.navigate(['/login']);
-      return false;
-    }
-  } 
-  
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+      this.cognitoService.isLoadingSubject.next(true);
+    return this.cognitoService.isAuthenticated().then((isAuthenticated) => {
+      if (isAuthenticated) {
+        return true;
+      } else {
+        this.cognitoService.isLoadingSubject.next(false);
+        this.router.navigate(['/login'], {
+          queryParams: { state: 'not-authenticated' },
+        });
+        return false;
+      }
+    });
+  }
 }
