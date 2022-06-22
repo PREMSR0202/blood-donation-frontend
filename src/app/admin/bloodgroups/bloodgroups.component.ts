@@ -15,56 +15,56 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BloodgroupsComponent implements OnInit {
 
-  newbloodgroup : string = "";
+  newbloodgroup: string = "";
   bloodDelete!: bloodGroup;
   Employee!: User;
   formvalue !: FormGroup;
-  bloodgrps : bloodGroup[] = [];
-  constructor(private toastr: ToastrService,private userservice : EmployeesService , private userdetails : EmployeeseditService , private formbuilder : FormBuilder , private bloodservice : BloodGroupService) { }
+  bloodgrps: bloodGroup[] = [];
+  constructor(private toastr: ToastrService, private userservice: EmployeesService, private userdetails: EmployeeseditService, private formbuilder: FormBuilder, private bloodservice: BloodGroupService) { }
 
   ngOnInit(): void {
-    this.bloodservice.allBloodGroup().subscribe(blood=>{
+    this.bloodservice.allBloodGroup().subscribe(blood => {
       this.bloodgrps = blood;
-    });    
-    
+    });
+
   }
 
-  delete(){
-    this.bloodservice.deleteBloodGroup(this.bloodDelete._id !).subscribe(res =>{
+  delete() {
+    this.bloodservice.deleteBloodGroup(this.bloodDelete._id!).subscribe(res => {
       console.log("Sucessful");
       let id = document.getElementById('exit');
       id?.click();
-      this.bloodservice.allBloodGroup().subscribe(blood=>{
+      this.bloodservice.allBloodGroup().subscribe(blood => {
         this.bloodgrps = blood;
       });
     },
-    err =>{
-      console.log("error");
-    });
+      err => {
+        console.log("error");
+      });
   }
 
-  deleteAccount(user: bloodGroup){
+  deleteAccount(user: bloodGroup) {
     this.bloodDelete = user;
   }
 
   bgavail = false;
-  add(){
+  add() {
     console.log(this.newbloodgroup);
-    
-    for( let i = 0 ; i<this.bloodgrps.length ;i++){
-      if(this.bloodgrps[i].bloodType == this.newbloodgroup){
+
+    for (let i = 0; i < this.bloodgrps.length; i++) {
+      if (this.bloodgrps[i].bloodType == this.newbloodgroup) {
         this.bgavail = true;
         this.toastr.error('Blood Group already Exists !!');
       }
     }
-    
-    if(!this.bgavail){
-      this.bloodservice.addBloodGroup(this.newbloodgroup).subscribe(res=>{
+
+    if (!this.bgavail) {
+      this.bloodservice.addBloodGroup(this.newbloodgroup).subscribe(res => {
         this.toastr.success('Blood Group added !!');
         this.bgavail = false;
-        this.bloodservice.allBloodGroup().subscribe(blood=>{
+        this.bloodservice.allBloodGroup().subscribe(blood => {
           this.bloodgrps = blood;
-        }); 
+        });
       })
     }
 
