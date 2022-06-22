@@ -25,10 +25,10 @@ export class AdminGuard implements CanActivate {
       this.cognitoService.isLoadingSubject.next(true);
     return this.cognitoService.getUser().then((user) => {
       this.cognitoService.isLoadingSubject.next(false);
-      if (user.attributes['custom:role'] === 'admin') {
+      if (user && user.attributes['custom:role'] === 'admin') {
         return true;
       } else {
-        this.router.navigate(['/login'], {
+        this.router.navigate(['/'], {
           queryParams: { state: 'not-an-admin' },
         });
         return false;

@@ -32,7 +32,7 @@ export class UserGuard implements CanActivate {
       } 
       else {
         this.cognitoService.isLoadingSubject.next(true);
-        this.router.navigate(['/login'], {
+        this.router.navigate(['/admin'], {
           queryParams: { state: 'not-a-user' },
         });
         return false;
