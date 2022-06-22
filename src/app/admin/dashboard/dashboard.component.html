@@ -1,127 +1,133 @@
-
 <div id="outerClass">
-    <div class="row">
-        <div class="col-sm-12 contentText">
-            <br><br>
-            <h1>Our Super Heroes</h1>
-            <h6>Our super heroes are our volunteer blood donors</h6>
-            <br><br><br><bR><br>
-        </div>
+  <div class="row">
+    <div class="col-sm-12 contentText">
+      <br><br>
+      <h1>Our Super Heroes</h1>
+      <h6>Our super heroes are our volunteer blood donors</h6>
+      <br><br><br><bR><br>
     </div>
-     <!--shape1-->
-     <div class="custom-shape-divider-bottom-1655715192">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
-        </svg>
-    </div>
-  
-   
   </div>
-  
-  <div class="form-group" id="searchBar">
+  <!--shape1-->
+  <div class="custom-shape-divider-bottom-1655715192">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
+    </svg>
+  </div>
+
+
+</div>
+
+<div class="form-group" id="searchBar">
   <input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here">
-  </div>
-  
-  <div class="content">
-    <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
-            <th><i class="material-icons">mail_outline</i>&nbsp;Email</th>
-            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-                Blood Group</th>
-            <th><i class="material-icons">phone</i>&nbsp;Contact Number</th>
-            <th><i class="fa fa-pencil" style="font-size: 18px;"></i></th>
-            <th><i class="fa fa-trash-o" style="font-size: 18px;"></i></th>
-          </tr>
-        </thead>
-        <tbody  *ngFor="let user of employees">
-          <tr>
-            <td style="color: #b98b00">{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 30 30" fill="none" stroke="indianred" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                <text x="5" y="16" fill="indianred" font-size="6px" font-weight="500">{{user.bloodGroup?.bloodType}}</text>
-            </svg></td>
-            <td>{{user.contact}}</td>
-            <td><button (click) = updatedetails(user) type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                update</button></td>
-            <td> <button type="button" (click) = deleteAccount(user) class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                Delete
-              </button></td>
-          </tr>
-           <!--delete modal-->
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Delete Confirmation</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="exit">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete the account with mail id <b>{{userDelete?.email}}</b> ?
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" (click) = delete()>Delete</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-                </div>
+</div>
+
+<div class="content">
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
+        <th><i class="material-icons">mail_outline</i>&nbsp;Email</th>
+        <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-droplet">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+          Blood Group</th>
+        <th><i class="material-icons">phone</i>&nbsp;Contact Number</th>
+        <th><i class="fa fa-pencil" style="font-size: 18px;"></i></th>
+        <th><i class="fa fa-trash-o" style="font-size: 18px;"></i></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of employees">
+      <tr>
+        <td style="color: #b98b00">{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 30 30" fill="none"
+            stroke="indianred" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            <text x="5" y="16" fill="indianred" font-size="6px" font-weight="500">{{user.bloodGroup?.bloodType}}</text>
+          </svg></td>
+        <td>{{user.contact}}</td>
+        <td><button (click)=updatedetails(user) type="button" class="btn btn-secondary" data-bs-toggle="modal"
+            data-bs-target="#exampleModalCenter">
+            update</button></td>
+        <td> <button type="button" (click)=deleteAccount(user) class="btn btn-danger" data-bs-toggle="modal"
+            data-bs-target="#exampleModal2">
+            Delete
+          </button></td>
+      </tr>
+      <!--delete modal-->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">Delete Confirmation</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="exit">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-        </tbody>
-      </table>
-
-    
-  
-  </div>
-
-  <!--update modal-->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Employee Details</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <div class="modal-body">
+              Are you sure you want to delete the account with mail id <b>{{userDelete?.email}}</b> ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)=delete()>Delete</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <form [formGroup]="formvalue">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="">
+      </div>
+    </tbody>
+  </table>
 
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" formControlName="email" class="form-control" id="email" placeholder="">
-            </div>
 
-            <div class="form-group">
-              <label for="blood">Blood Group</label>
-              <input type="text" formControlName="blood" class="form-control" id="blood" placeholder="">
-            </div>
 
-            <div class="form-group">
-                <label for="Mobile">Mobile No.</label>
-                <input type="number" formControlName="Mobile" class="form-control" id="Mobile" placeholder="">
-              </div>
+</div>
 
-            <div class="form-group">
-              <label for="Blooddonated">Date of Birth</label>
-              <input type="date" formControlName="Blooddonated" class="form-control" id="Blooddonated" placeholder="">
-            </div>
+<!--update modal-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Employee Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formvalue">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp"
+              placeholder="">
 
-          </form>
-        </div> 
-        <div class="modal-footer">
-          <button type="button"  id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button  (click) = update() type="button" class="btn btn-primary">Update</button>
-        </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="email" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="blood">Blood Group</label>
+            <input type="text" formControlName="blood" class="form-control" id="blood" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="Mobile">Mobile No.</label>
+            <input type="number" formControlName="Mobile" class="form-control" id="Mobile" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="Blooddonated">Date of Birth</label>
+            <input type="date" formControlName="Blooddonated" class="form-control" id="Blooddonated" placeholder="">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)=update() type="button" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>
-
-
- 
+</div>

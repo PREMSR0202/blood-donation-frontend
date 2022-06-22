@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <button class="btn btn-primary" (click)="editMethod()">Edit Profile</button>
+    <button class="btn btn-success"  (click)="updateProfile()" id="save">Update Profile</button>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" [disabled]="clicked" [(ngModel)]="name" class="form-control"
+                    id="exampleFormControlInput1" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Contact</label>
+                <input type="text" [disabled]="clicked" [(ngModel)]="contact" class="form-control"
+                    id="exampleFormControlInput1" placeholder="Contact">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Date-of-Birth</label>
+                <input type="date" [disabled]="clicked" [ngModel]="dob|date:'yyyy-MM-dd'" (ngModelChange)="dob = $event"
+                    class="form-control" id="exampleFormControlInput1" placeholder="DOB">
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Designation</label>
+                <input type="text" [disabled]="clicked" [(ngModel)]="designation" class="form-control"
+                    id="exampleFormControlInput1" placeholder="Designation">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Address</label>
+                <input type="text" [disabled]="clicked" [(ngModel)]="address" class="form-control"
+                    id="exampleFormControlInput1" placeholder="Address">
+            </div>
+            <div>
+                <label for="" class="form-label">Blood Donation</label>
+                <select aria-placeholder="Is Interested" [disabled]="clicked" [(ngModel)]="isInterested"
+                    class="form-select" aria-label="Default select example">
+                    <option [value]="true">Yes</option>
+                    <option [value]="false">No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

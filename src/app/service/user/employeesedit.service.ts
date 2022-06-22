@@ -13,7 +13,7 @@ export class EmployeeseditService {
   
   constructor(private http: HttpClient) { }
 
-  updateuser(id : string , user : User): Observable<any>{
+  updateuser(id : string , user : any): Observable<any>{
     return this.http.patch(`${this.baseURL}updateuser/${id}`,user);
   }
 
