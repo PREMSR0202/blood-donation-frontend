@@ -7,8 +7,7 @@ import { UserComponent } from './user.component';
 import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-group.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
-
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
     UserComponent,
     BloodDonarsGroupComponent,
     UserNavbarComponent,
-    UserSidebarComponent
+    UserSidebarComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

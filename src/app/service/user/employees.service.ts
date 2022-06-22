@@ -12,23 +12,21 @@ import { User } from '../../interfaces/user';
 export class EmployeesService {
 
   private baseURL: string = environment.api;
-  
+
   constructor(private http: HttpClient) { }
 
-  createUser(user : User): Observable<any> {
+  createUser(user: User): Observable<any> {
     return this.http.post(this.baseURL + 'register', user);
   }
 
-  loginUser(email : string , password : string): Observable<any> {
-    return this.http.post(this.baseURL + 'login' ,{email:email , password:password})
+  loginUser(email: string, password: string): Observable<any> {
+    return this.http.post(this.baseURL + 'login', { email: email, password: password })
   }
 
-  fetchCurrentUser(_id : string):Observable<any>{
-
+  fetchCurrentUser(_id: string): Observable<any> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("id",_id);
-    return this.http.get<any>(this.baseURL+ 'currentUser',{params:queryParams});
-    
+    queryParams = queryParams.append("id", _id);
+    return this.http.get<any>(this.baseURL + 'currentUser', { params: queryParams });
   }
 
 }

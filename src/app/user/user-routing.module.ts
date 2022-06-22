@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../Components/auth.guard';
@@ -13,7 +14,8 @@ const routes : Routes = [
         path: '', component: UserComponent,
         children: [
             { path: "", component: DashboardComponent },
-            { path: "bloodgroup", component: BloodDonarsGroupComponent}
+            { path: "bloodgroup", component: BloodDonarsGroupComponent},
+            { path: "profile", component: UserProfileComponent }
         ]
     }
 ];

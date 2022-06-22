@@ -5,14 +5,14 @@ export interface User {
     email: string;
     password: string;
     isAdmin: boolean;
-    dob: Date;
+    dob?: Date;
     bloodGroup: bloodGroup;
     designation: string;
     address: string;
     contact: string;
-    isInterested: boolean;
     createdAt: Date;
     updatedAt: Date;
     lat?: number;
     lng?: number;
+    isInterested: boolean;
   }
