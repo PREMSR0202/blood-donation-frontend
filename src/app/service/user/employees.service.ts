@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../../interfaces/user';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { User } from '../../interfaces/user';
 
 export class EmployeesService {
 
-  private baseURL: string = 'http://blooddonationapp-env.eba-bjdtpx52.us-east-1.elasticbeanstalk.com/';
+  private baseURL: string = environment.api;
   
   constructor(private http: HttpClient) { }
 

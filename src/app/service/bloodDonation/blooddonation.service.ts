@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { map, Observable, Subject } from 'rxjs';
 import { bloodDonation } from 'src/app/interfaces/bloodDonations';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class BlooddonationService {
   sourceMessage = this.sourceSubject.asObservable();
 
 
-  private baseURL: string = 'http://blooddonationapp-env.eba-bjdtpx52.us-east-1.elasticbeanstalk.com/';
+  private baseURL: string = environment.api;
   constructor(private http: HttpClient) { }
 
   addBloodDonation() {
