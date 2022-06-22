@@ -19,11 +19,11 @@
   </div>
   
   <div class="form-group" id="searchBar">
-  <input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here">
+  <input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here" (keyup) = "filterTable()">
   </div>
-  
+  <p id="msg" style="display: none">No records found !</p>
   <div class="content">
-    <table class="table table-borderless">
+    <table class="table table-borderless" id="searchTable">
         <thead>
           <tr>
             <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
@@ -71,6 +71,7 @@
             </div>
         </tbody>
       </table>
+    
 
     
   

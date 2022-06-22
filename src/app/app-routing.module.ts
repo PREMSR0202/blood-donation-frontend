@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {path: 'login' , component: LoginComponent, canActivate: [GuestGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]},
-  {path: 'requestform', component:RequestFormComponent, canActivate: [GuestGuard]}
+  {path: 'requestform', component:RequestFormComponent, canActivate: [GuestGuard]},
 ];
 
 // const routes: Routes = [];

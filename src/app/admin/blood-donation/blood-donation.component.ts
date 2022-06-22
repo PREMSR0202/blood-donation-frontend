@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { bloodGroup } from 'src/app/interfaces/bloodGroup';
 import { User } from 'src/app/interfaces/user';
+import { BloodGroupService } from 'src/app/service/bloodGroup/bloodgroup.service';
 import { EmployeesService } from 'src/app/service/user/employees.service';
 import { EmployeeseditService } from 'src/app/service/user/employeesedit.service';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { BloodGroupService } from 'src/app/service/bloodGroup/bloodgroup.service';
-import { bloodGroup } from 'src/app/interfaces/bloodGroup';
-
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-blood-donation',
+  templateUrl: './blood-donation.component.html',
+  styleUrls: ['./blood-donation.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class BloodDonationComponent implements OnInit {
 
   userDelete!: User;
   Employee!: User;
@@ -48,37 +46,6 @@ export class DashboardComponent implements OnInit {
     this.formvalue.controls['Mobile'].setValue(user.contact);
   }
 
-  update(){
-    this.Employee.name = this.formvalue.value.name;
-    this.Employee.email = this.formvalue.value.email;
-    
-
-    this.bloodservice.allBloodGroup().subscribe(bloodgroup =>{
-      console.log(bloodgroup);
-      this.bloodgroups = bloodgroup;
-      console.log("blood groups" + this.bloodgroups);
-    });
-    console.log(this.bloodgroups);
-    
-    for(var i = 0; i < this.bloodgroups.length; i++){
-      if(this.bloodgroups[i].bloodType == this.formvalue.value.blood){
-        this.Employee.bloodGroup = this.bloodgroups[i];
-      }
-  }
-    this.Employee.dob= this.formvalue.value.Blooddonated;
-    this.Employee.contact = this.formvalue.value.Mobile;
-    let id = this.Employee._id !;
-    this.userdetails.updateuser(id , this.Employee).subscribe(res =>{
-      console.log("Sucessful");
-      
-      let id = document.getElementById('close');
-      id?.click();
-      this.formvalue.reset();
-    },
-    err =>{
-      console.log("error");
-    });
-  }
 
   delete(){
     this.userdetails.deleteuser(this.userDelete._id !).subscribe(res =>{
@@ -98,7 +65,7 @@ export class DashboardComponent implements OnInit {
     this.userDelete = user;
   }
 
-
+  
   filterTable(){
     var input, filter, table, tr, bg, name, i, txtValue ,nameValue ,msg;
     input = document.getElementById("search") as HTMLInputElement;
@@ -107,7 +74,7 @@ export class DashboardComponent implements OnInit {
     tr = table.getElementsByTagName("tr");
     msg = document.getElementById("msg") as HTMLElement;
     for (i = 0; i < tr.length; i++) {
-      bg = tr[i].getElementsByTagName("td")[2];
+      bg = tr[i].getElementsByTagName("td")[1];
       name = tr[i].getElementsByTagName("td")[0];
       if (bg || name) {
         txtValue = bg.textContent || bg.innerText;
