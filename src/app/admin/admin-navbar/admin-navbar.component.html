@@ -1,0 +1,62 @@
+<header class='container-fluid'>
+    <div class="left d-flex justify-content-between align-items-center">
+        <a href="/" class='logo me-3'>
+            <!-- <h5 class='mb-3 d-inline me-sm-2'>B<span class='text-primary'>H</span></h5> -->
+            <img src="assets/image/logoup.png" alt="logo" class='logo-img'>
+            <h5 class='mb-0 d-none d-sm-inline'><span class='text-primary'>Blood</span> Way</h5>
+        </a>
+        <span class="ms-2 material-icons" (click)="toggleIsOpen(!isOpen)">
+            menu
+        </span>
+    </div>
+    <div class="right d-flex justify-content-between align-items-center">
+        <div class="dropdown">
+            <a href="#" class='d-flex align-items-center text-dark text-decoration-none dropdown-toggle' type="button"
+                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class='rounded me-1'
+                    src="https://ui-avatars.com/api/?name=saravanaraja&size=38&bold=true&background=E85E4F&color=fff"
+                    height={32} width={32} alt="" />
+                <span class="d-none d-sm-block">Saravana Raja</span>
+            </a>
+            <ul class="dropdown-menu">
+                <a>
+                    <li class="dropdown-item">My Account</li>
+                </a>
+                <a>
+                    <li class="dropdown-item">Settings</li>
+                </a>
+                <a>
+                    <li class="dropdown-item" (click)="logout()">Log Out</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- <header class="container-fluid nav-container">
+      <div class="left-section" style="margin: 10px;">
+          <div class="row">
+          <div class="col-4">
+              <img src="assets/image/logoup.png" class="img-rounded" alt="logo" width="60px" height="60px">
+          </div>
+          <div class="col-8" style="margin-top: 10px;">
+              <h3><span style="color: #E85E4F; font-weight: bold;">Blood</span> Way</h3>
+          </div>
+          </div>
+      </div>
+      <div class="right-section" style="margin: 15px;">
+          
+  
+          <div class=" btn-group" style="margin: 30px;">
+              <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                User Name.
+              </button>
+              <ul class="dropdown-menu">
+                <a><li class="dropdown-item">My Account</li></a>
+                <a><li class="dropdown-item">Settings</li></a>
+                <a><li class="dropdown-item" (click)="logout()">Log Out</li></a>
+              </ul>
+            </div>
+  
+            <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" class="rounded-circle" alt="logo" width="50px" height="50px">
+      </div>
+  </header> -->

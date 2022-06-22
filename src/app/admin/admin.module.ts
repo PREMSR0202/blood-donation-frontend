@@ -7,20 +7,23 @@ import { AdminComponent } from './admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BloodgroupsComponent } from './bloodgroups/bloodgroups.component';
 import { BlooddonationComponent } from './blooddonation/blooddonation.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminComponent,
     BloodgroupsComponent,
-    BlooddonationComponent,    
+    BlooddonationComponent,
+    AdminNavbarComponent,
+    AdminSidebarComponent,    
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SharedModule,
-    AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

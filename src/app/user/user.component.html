@@ -1,10 +1,23 @@
-<app-navbar></app-navbar>
+<app-user-navbar [isOpen]="isOpen" (isOpenChange)="isOpenChange(isOpen)"></app-user-navbar>
 <div class="user-main">
-    <div class="row w-100">
-        <div class="col-md-2">
-            <app-sidebar></app-sidebar>
-        </div>
-        <div class="col">
+    <div class="row m-0">
+        <app-user-sidebar [isOpen]="isOpen"></app-user-sidebar>
+        <div class="col main" [ngClass]="{'offset-lg-2': (isOpen)}">
+            <div class="page-title px-2 d-flex mt-3 justify-content-between">
+                <div class="title">
+                    <h5>Dashboard</h5>
+                </div>
+                <div class="breadcrumbs">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <span class="material-icons">home</span>
+                            </li>                            
+                            <li class="breadcrumb-item">Dashboard</li>                            
+                        </ol>
+                    </nav>
+                </div>
+            </div>
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -1,3 +1,23 @@
 .user-main{
     padding-top: 60px;
+    .main{
+        background-color:#f8f8f8 ;
+        transition: all .3s;
+        .page-title{
+            .title{
+                h5{
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #2a3e4c;
+                    margin-bottom: 20px;
+                }
+            }
+            .breadcrumbs{
+                li{
+                    color: #E85E4F;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }
