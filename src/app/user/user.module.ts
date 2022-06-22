@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-group.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -12,7 +13,8 @@ import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-gro
   declarations: [
     DashboardComponent,
     UserComponent,
-    BloodDonarsGroupComponent
+    BloodDonarsGroupComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,
