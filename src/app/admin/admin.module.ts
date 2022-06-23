@@ -23,7 +23,8 @@ import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

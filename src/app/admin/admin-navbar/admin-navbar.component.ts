@@ -12,9 +12,14 @@ export class AdminNavbarComponent implements OnInit {
   @Input() isOpen : any;
   @Output() isOpenChange = new EventEmitter<boolean>();
 
+  user : any;
+
   constructor(private auth : AuthService) { }
   ngOnInit(): void {
-    
+    this.auth.currentUserData.subscribe(data => {
+      this.user = data;
+    })
+    this.auth.getCurrentUser();
   }
   logout(){
     console.log("inside");

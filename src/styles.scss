@@ -16,3 +16,23 @@ body{
 .material-icons{
     cursor: pointer;
 }
+.btn-primary{
+    background-color: #ff6262;
+    border: unset;
+    &:hover{
+        background-color: #ff9f9f;
+    }
+    &:active, &:focus{
+        outline: unset;
+        background-color: #ff6262;
+        box-shadow: unset !important;
+        border: unset;
+    }
+}
+header{
+    .dropdown-item{
+        &:active{
+            background-color: #ff6262 !important;
+        }
+    }
+}

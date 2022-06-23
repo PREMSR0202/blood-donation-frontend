@@ -10,10 +10,16 @@ export class UserNavbarComponent implements OnInit {
 
   constructor(private auth : AuthService) { }
 
+  user : any;
+
   @Input() isOpen : any;
   @Output() isOpenChange = new EventEmitter<boolean>();
 
   ngOnInit(): void {
+    this.auth.currentUserData.subscribe(data => {
+      this.user = data;
+    })
+    this.auth.getCurrentUser();
   }
   logout(){
     console.log("inside");

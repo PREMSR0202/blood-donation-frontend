@@ -14,17 +14,11 @@
             <a href="#" class='d-flex align-items-center text-dark text-decoration-none dropdown-toggle' type="button"
                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class='rounded me-1'
-                    src="https://ui-avatars.com/api/?name=saravanaraja&size=38&bold=true&background=E85E4F&color=fff"
+                    src="{{'https://ui-avatars.com/api/?name='+user?.name+'&size=38&bold=true&background=E85E4F&color=fff'}}"
                     height={32} width={32} alt="" />
-                <span class="d-none d-sm-block">Saravana Raja</span>
+                <span class="d-none d-sm-block">{{user?.name}}</span>
             </a>
             <ul class="dropdown-menu">
-                <a>
-                    <li class="dropdown-item">My Account</li>
-                </a>
-                <a>
-                    <li class="dropdown-item">Settings</li>
-                </a>
                 <a>
                     <li class="dropdown-item" (click)="logout()">Log Out</li>
                 </a>

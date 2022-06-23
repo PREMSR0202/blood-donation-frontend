@@ -1,49 +1,67 @@
+<app-page-title [title]="'Dasboard'" [breadcrumb]="['Dashboard']"></app-page-title>
+<div class="row">
+  <div class="col-md-8">
+
+  </div>
+  <!-- <div class="col-md-4 mb-2">
+    <a href="" class="btn btn-primary float-md-end justify-content-center d-flex">
+      <span class='material-icons me-1'>add</span>
+      Create
+    </a>
+  </div> -->
+</div>
 <div id="outerClass">
   <div class="row">
-      <div class="col-sm-12 contentText">
-          <br><br>
-          <h1>Our Super Heroes</h1>
-          <h6>Our super heroes are our volunteer blood donors</h6>
-          <br><br><br><bR><br>
-      </div>
+    <div class="col-sm-12 contentText">
+      <br><br>
+      <h1>Our Super Heroes</h1>
+      <h6>Our super heroes are our volunteer blood donors</h6>
+      <br><br><br><bR><br>
+    </div>
   </div>
-   <!--shape1-->
-   <div class="custom-shape-divider-bottom-1655715192">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
-      </svg>
+  <!--shape1-->
+  <div class="custom-shape-divider-bottom-1655715192">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
+    </svg>
   </div>
 
- 
+
 </div>
 
 <div class="form-group" id="searchBar">
-<input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here">
+  <input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here">
 </div>
 
 <div class="content">
   <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
-          <th><i class="material-icons">mail_outline</i>&nbsp;Email</th>
-          <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-              Blood Group</th>
-          <th><i class="fa fa-question-circle-o"></i>&nbsp;Is Interested</th>
-          <th><i class="material-icons">phone</i>&nbsp;Contact Number</th>
-        </tr>
-      </thead>
-      <tbody  *ngFor="let user of employees">
-        <tr>
-          <td style="color: #b98b00">{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 30 30" fill="none" stroke="indianred" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-              <text x="5" y="16" fill="indianred" font-size="6px" font-weight="50">{{user.bloodGroup?.bloodType}}</text>
+    <thead>
+      <tr>
+        <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
+        <th><i class="material-icons">mail_outline</i>&nbsp;Email</th>
+        <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-droplet">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+          Blood Group</th>
+        <th><i class="fa fa-question-circle-o"></i>&nbsp;Is Interested</th>
+        <th><i class="material-icons">phone</i>&nbsp;Contact Number</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of employees">
+      <tr>
+        <td style="color: #b98b00">{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 30 30" fill="none"
+            stroke="indianred" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            <text x="5" y="16" fill="indianred" font-size="6px" font-weight="50">{{user.bloodGroup?.bloodType}}</text>
           </svg></td>
-          <td>{{user.isInterested}}</td>
-          <td>{{user.contact}}</td>
-        </tr>
-      </tbody>
-    </table>
+        <td>{{user.isInterested}}</td>
+        <td>{{user.contact}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

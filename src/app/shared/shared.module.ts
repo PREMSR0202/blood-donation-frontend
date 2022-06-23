@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthInterceptor } from '../Components/auth.interceptor';
+import { PageTitleComponent } from './page-title/page-title.component';
 
 const components = [
   SidebarComponent,
-  NavbarComponent
+  NavbarComponent,
+  PageTitleComponent
 ];
 
 const modules = [

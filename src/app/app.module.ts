@@ -36,6 +36,7 @@ import { VerifyComponent } from './Components/verify/verify.component';
     UserModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     NoopAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
     AgmCoreModule.forRoot({

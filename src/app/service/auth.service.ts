@@ -22,6 +22,12 @@ export class AuthService {
 
   isRequiredFieldsFilled: boolean = false;
 
+  // subject for user
+  private userSubject = new Subject<User>();
+  currentUserData = this.userSubject.asObservable();
+
+
+
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   getToken() {
@@ -156,13 +162,10 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    return this.http.get(this.apiUrl + 'currentUser/').subscribe(
+    return this.http.get<User>(this.apiUrl + 'currentUser/').subscribe(
       (response: any) => {
         console.log(response);
-        this.isAdmin = response.isAdmin;
-        localStorage.setItem('isAdmin', this.isAdmin.toString());
-        localStorage.setItem('userId', response._id);
-        this.userId = response._id;
+        this.userSubject.next(response);
       },
       (error) => {
         localStorage.clear();

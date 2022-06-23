@@ -27,6 +27,9 @@ export class BloodDonarsGroupComponent implements OnInit  {
   employees : User[] = [];
   blood !: blood 
   dict = {};
+
+  title = 'Blood Group';
+  breadcrumb: string[] = [ 'Blood Group'];
   constructor(private userservice : EmployeesService , private userdetails : EmployeeseditService , private formbuilder : FormBuilder , private bloodservice : BloodGroupService) { }
 
    bloodgrps = new Map(); 

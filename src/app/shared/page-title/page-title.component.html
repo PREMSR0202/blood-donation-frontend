@@ -1,0 +1,15 @@
+<div class="page-title px-2 d-flex mt-3 justify-content-between">
+    <div class="title">
+        <h5>{{ title }}</h5>
+    </div>
+    <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <span class="material-icons">home</span>
+                </li>                            
+                <li *ngFor="let breadcrumb of breadcrumb" class="breadcrumb-item">{{breadcrumb}}</li>                            
+            </ol>
+        </nav>
+    </div>
+  </div>
