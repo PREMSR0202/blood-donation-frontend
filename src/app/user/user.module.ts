@@ -8,6 +8,9 @@ import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-gro
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BloodDonationComponent } from './blood-donation/blood-donation.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { BloodRequestComponent } from './blood-request/blood-request.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BloodDonarsGroupComponent,
     UserNavbarComponent,
     UserSidebarComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    BloodDonationComponent,
+    EmployeesComponent,
+    BloodRequestComponent
   ],
   imports: [
     CommonModule,

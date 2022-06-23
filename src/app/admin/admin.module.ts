@@ -9,6 +9,8 @@ import { BloodgroupsComponent } from './bloodgroups/bloodgroups.component';
 import { BlooddonationComponent } from './blooddonation/blooddonation.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
+import { UsersComponent } from './users/users.component';
+import { BloodRequestComponent } from './blood-request/blood-request.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
     BloodgroupsComponent,
     BlooddonationComponent,
     AdminNavbarComponent,
-    AdminSidebarComponent,    
+    AdminSidebarComponent,
+    UsersComponent,
+    BloodRequestComponent,    
   ],
   imports: [
     CommonModule,

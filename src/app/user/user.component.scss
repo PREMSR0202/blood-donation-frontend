@@ -3,7 +3,7 @@
     .main{
         background-color:#f8f8f8 ;
         transition: all .3s;
-        
+        min-height: calc(100vh - 60px);
     }
     .page-title{
             .title{
