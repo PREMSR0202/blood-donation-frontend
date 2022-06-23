@@ -18,6 +18,7 @@ import { BloodDetailsComponent } from './Components/blood-details/blood-details.
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
 import { VerifyComponent } from './Components/verify/verify.component';
+import { RequestFormComponent } from './Components/request-form/request-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VerifyComponent } from './Components/verify/verify.component';
     RegisterComponent,
     BasicInfoComponent,
     BloodDetailsComponent,
-    VerifyComponent
+    VerifyComponent,
+    RequestFormComponent
   ],
   imports: [
     BrowserModule,
