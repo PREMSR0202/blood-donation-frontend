@@ -2,10 +2,11 @@ import { bloodGroup } from "./bloodGroup";
 
 
 export interface bloodRequest {
+
     _id : string;
     name: string;
     email: string;
-    bloodType: bloodGroup;
+    bloodType: string;
     contact: string;
     address: string;
     requestDate :Date;
