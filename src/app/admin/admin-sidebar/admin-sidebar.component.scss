@@ -73,6 +73,9 @@ $primary-color:#E85E4F;
               transition: all .3s;
               color: black;              
           }
+          &.active{
+            background-color: #ff9f9f;
+          }
       }
       .item-header{
           font-size: 12px;

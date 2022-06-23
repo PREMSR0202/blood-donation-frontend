@@ -13,6 +13,20 @@ body{
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+          position: fixed;
+          width: 6px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+          background: #F9F9F9; 
+      }
+      
+      ::-webkit-scrollbar-thumb {
+          background: #606060; 
+          border-radius: 5px;
+      }
 .material-icons{
     cursor: pointer;
 }

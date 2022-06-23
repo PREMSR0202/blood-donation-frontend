@@ -11,6 +11,7 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { UsersComponent } from './users/users.component';
 import { BloodRequestComponent } from './blood-request/blood-request.component';
+import { DataTablesModule } from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BloodRequestComponent } from './blood-request/blood-request.component';
     FormsModule,
     AdminRoutingModule,
     SharedModule,
+    DataTablesModule,
   ],
 })
 export class AdminModule { }
