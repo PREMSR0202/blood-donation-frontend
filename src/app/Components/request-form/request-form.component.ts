@@ -100,16 +100,16 @@ export class RequestFormComponent implements OnInit {
     const request: RequestForm = {
       name:  this.userName?.value,
       email: this.email?.value,
-      reqdate: this.reqdate?.value,
+      requestDate: this.reqdate?.value,
       bloodGroup: this.bloodgroup?.value,
       address: this.address?.value,
       contact: this.phno?.value
     };
 
-    this.reqservice.requestForm(request).subscribe(req=>{
-      this.toastr.error("Resquest raised successfully !");
+    this.reqservice.addrequestForm(request).subscribe(req=>{
+      this.toastr.success("Request raised successfully !");
+      this.requestForm.reset();
     });
-    // console.log(request);
 
     // this.auth.createUser(user.email, user.password, user.name);
   }

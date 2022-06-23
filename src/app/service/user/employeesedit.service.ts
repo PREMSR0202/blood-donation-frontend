@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
 import { environment } from 'src/environments/environment';
 
@@ -10,23 +10,26 @@ import { environment } from 'src/environments/environment';
 export class EmployeeseditService {
 
   private baseURL: string = environment.api;
-  
+
+  private sourceSubject = new Subject<User[]>();
+  sourceMessage = this.sourceSubject.asObservable();
+
   constructor(private http: HttpClient) { }
 
-  updateuser(id : string , user : any): Observable<any>{
-    return this.http.patch(`${this.baseURL}updateuser/${id}`,user);
+  updateuser(id: string, user: any): Observable<any> {
+    return this.http.patch(`${this.baseURL}updateuser/${id}`, user);
   }
 
-  deleteuser(id : string): Observable<any>{
-    return this.http.delete( `${this.baseURL}deleteuser/${id}`)
+  deleteuser(id: string) {
+    return this.http.delete(`${this.baseURL}deleteuser/${id}`)
   }
 
-  allusers():Observable<any>{
-  return this.http.get(this.baseURL + 'allusers').pipe(
-      map( (data: any) => {
-        console.log(data);
+  allusers(): Observable<any> {
+    return this.http.get(this.baseURL + 'allusers').pipe(
+      map((data: any) => {
+        this.sourceSubject.next(data);
         return data;
-        })
-      );
+      })
+    );
   }
 }

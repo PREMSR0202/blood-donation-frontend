@@ -1,1 +1,51 @@
 <app-page-title [title]="'Blood Request'" [breadcrumb]="['Blood Request']"></app-page-title>
+
+<!-- <h1>{{usr.name}}</h1> -->
+<div class="content mt-3 px-0 px-md-3">
+    <div class="rounded bg-white p-4">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+              Contact
+            </th>
+            <th>
+                Required On
+              </th>
+              <th>
+                Blood Group
+              </th>
+              
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container >
+            <tr *ngFor="let group of bloodrequest">
+              <td>
+                {{group.name}}
+              </td>
+              <td>
+                {{group.email}}
+              </td>
+              <td>
+                {{group.contact}}
+              </td>
+              <td>
+                {{group.requestDate | date}}
+              </td>
+              <td>
+                {{group.bloodType}}
+              </td>
+              
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
