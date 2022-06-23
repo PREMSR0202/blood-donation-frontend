@@ -12,8 +12,6 @@ export const environment = {
     userPoolWebClientId: '5konrl9mos6vtcftf3aa0iralu'
   },
   region: 'us-east-1',
-  accessKeyId: 'AKIA5A455FMMVTBCQX2R',
-  secretAccessKey: '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',
 };
 
 /*
