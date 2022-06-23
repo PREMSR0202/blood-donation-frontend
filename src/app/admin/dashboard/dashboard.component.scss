@@ -1,5 +1,10 @@
 .card {
   box-shadow: 10px 10px 10px #888888;
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .progress {
@@ -80,15 +85,6 @@
 }
 .progress.blue .progress-left .progress-bar {
   animation: loading-2 1.5s linear forwards 1.8s;
-}
-.progress.yellow .progress-bar {
-  border-color: #fdba04;
-}
-.progress.yellow .progress-right .progress-bar {
-  animation: loading-2 1.5s linear forwards 1.8s;
-}
-.progress.yellow .progress-left .progress-bar {
-  animation: none;
 }
 @keyframes loading-1 {
   0% {

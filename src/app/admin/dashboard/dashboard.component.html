@@ -1,10 +1,10 @@
 <app-page-title [title]="'Dasboard'" [breadcrumb]="['Dasboard']"></app-page-title>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3 mb-4 mb-md-0">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"> <i class="material-icons me-2">badge</i> Total Willing Donors</h5>
+          <h5 class="card-title"> <i class="material-icons me-2">badge</i> Willing Donors</h5>
           <div class="progress blue">
             <span class="progress-left">
               <span class="progress-bar"></span>
@@ -12,15 +12,15 @@
             <span class="progress-right">
               <span class="progress-bar"></span>
             </span>
-            <div class="progress-value">{{totalWillingDonors}}%</div>
+            <div class="progress-value">{{totalWillingDonors}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3 mb-4 mb-md-0">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"> <i class="material-icons me-2">volunteer_activism</i> Total Donations</h5>
+          <h5 class="card-title"> <i class="material-icons me-2">volunteer_activism</i> Recent Donations</h5>
           <div class="progress blue">
             <span class="progress-left">
               <span class="progress-bar"></span>
@@ -28,15 +28,15 @@
             <span class="progress-right">
               <span class="progress-bar"></span>
             </span>
-            <div class="progress-value">{{totalDonations}}%</div>
+            <div class="progress-value">{{totalDonations}}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"> <i class="material-icons me-2">add_to_photos</i> Total Blood Requests</h5>
+          <h5 class="card-title"> <i class="material-icons me-2">add_to_photos</i> Blood Requests</h5>
           <div class="progress blue">
             <span class="progress-left">
               <span class="progress-bar"></span>
@@ -44,17 +44,15 @@
             <span class="progress-right">
               <span class="progress-bar"></span>
             </span>
-            <div class="progress-value">{{totalBloodRequests}}%</div>
+            <div class="progress-value">{{totalBloodRequests}}</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"> <i class="material-icons me-2">bloodtype</i> Total BloodGroups</h5>
+          <h5 class="card-title"> <i class="material-icons me-2">bloodtype</i> BloodGroups</h5>
           <div class="progress blue">
             <span class="progress-left">
               <span class="progress-bar"></span>
@@ -62,7 +60,7 @@
             <span class="progress-right">
               <span class="progress-bar"></span>
             </span>
-            <div class="progress-value">{{totalBloodGroups}}%</div>
+            <div class="progress-value">{{totalBloodGroups}}</div>
           </div>
         </div>
       </div>

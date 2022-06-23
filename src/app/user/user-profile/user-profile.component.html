@@ -1,7 +1,9 @@
 <app-page-title [title]="'My Account'" [breadcrumb]="['Profile']"></app-page-title>
 <div class="container mt-3">
-    <button class="btn btn-primary" (click)="editMethod()">Edit Profile</button>
-    <button class="btn btn-success" [disabled]="clicked" (click)="updateProfile()" id="save">Update Profile</button>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" (click)="editMethod()">Edit Profile</button>
+        <button class="btn btn-dark" [disabled]="clicked" (click)="updateProfile()">Update Profile</button>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="mb-3">
