@@ -15,6 +15,7 @@ export class BlooddonationComponent implements OnInit {
   ngOnInit(): void {
     this.bloodDonationService.sourceMessage.subscribe(data => {
       this.bloodDonations = data;
+      console.log(data)
     })
     this.bloodDonationService.allBloodDonations()
   }

@@ -26,7 +26,7 @@ export class CognitoService {
   constructor() {
     Amplify.configure({
       Auth: environment.cognito,
-    });    
+    });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
   }
@@ -35,7 +35,7 @@ export class CognitoService {
     return Auth.signUp({
       username: email,
       password: password,
-      attributes: {        
+      attributes: {
         'custom:role': 'user',
       },
     });
@@ -62,17 +62,17 @@ export class CognitoService {
 
       return this.getUser()
         .then((user: any) => {
-          if (user) {            
+          if (user) {
             return true;
-          } else {            
+          } else {
             return false;
           }
         })
-        .catch(() => {          
+        .catch(() => {
           return false;
         });
-      }
-      
+    }
+
   }
 
   public async getToken(): Promise<any> {
