@@ -44,9 +44,10 @@ export class BlooddonationService {
 
 
   allBloodDonations() {
-    return this.http.get<bloodDonation[]>(this.baseURL + 'allBloodDonations').subscribe(data => {
+    return this.http.get<bloodDonation[]>(this.baseURL + 'allBloodDonations').subscribe((data: any) => {
       if (data) {
         this.sourceSubject.next(data);
+        return data;
       }
     });
   }

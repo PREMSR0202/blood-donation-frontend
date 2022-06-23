@@ -27,7 +27,6 @@ export class BloodGroupService {
   allBloodGroup():Observable<any>{
     return this.http.get(this.baseURL + 'allBloodGroup').pipe(
         map( (data: any) => {
-          console.log(data);
           return data;
           })
         );

@@ -29,7 +29,6 @@ export class BloodrequestService {
   allBloodRequests():Observable<any>{
   return this.http.get(this.baseURL + 'allBloodRequests').pipe(
       map( (data: any) => {
-        console.log(data);
         return data;
         })
       );

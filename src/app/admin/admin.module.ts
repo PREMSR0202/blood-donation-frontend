@@ -21,14 +21,14 @@ import { BloodRequestComponent } from './blood-request/blood-request.component';
     AdminNavbarComponent,
     AdminSidebarComponent,
     UsersComponent,
-    BloodRequestComponent,    
+    BloodRequestComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     AdminRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
 export class AdminModule { }

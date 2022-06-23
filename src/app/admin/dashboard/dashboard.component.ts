@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
-import { EmployeesService } from 'src/app/service/user/employees.service';
-import { EmployeeseditService } from 'src/app/service/user/employeesedit.service';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
 import { BloodGroupService } from 'src/app/service/bloodGroup/bloodgroup.service';
-import { bloodGroup } from 'src/app/interfaces/bloodGroup';
-
+import { BloodrequestService } from './../../service/bloodRequest/bloodrequest.service';
+import { BlooddonationService } from './../../service/bloodDonation/blooddonation.service';
+import { EmployeeseditService } from 'src/app/service/user/employeesedit.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,87 +11,34 @@ import { bloodGroup } from 'src/app/interfaces/bloodGroup';
 })
 export class DashboardComponent implements OnInit {
 
-  userDelete!: User;
-  Employee!: User;
-  formvalue !: FormGroup;
-  employees : User[] = [];
-  bloodgroups : bloodGroup[] = [];
-  constructor(private userservice : EmployeesService , private userdetails : EmployeeseditService , private formbuilder : FormBuilder , private bloodservice : BloodGroupService) { }
+  totalWillingDonors: number = 0;
+  totalDonations: number = 0;
+  totalBloodRequests: number = 0;
+  totalBloodGroups: number = 0;
+
+  constructor(private employeeEditService: EmployeeseditService,
+    private bloodDonationService: BlooddonationService,
+    private bloodRequestService: BloodrequestService,
+    private bloodGroupService: BloodGroupService) { }
 
   ngOnInit(): void {
-    this.userdetails.allusers().subscribe(res=>{
-      this.employees=res;
+    this.employeeEditService.allusers().subscribe(data => {
+      this.totalWillingDonors = data.length;
+      console.log(this.totalWillingDonors);
     });
-    
-    
-   
-    this.formvalue = this.formbuilder.group({
-      name :[''],
-      email : [''],
-      blood : [''],
-      Blooddonated : [''],
-      Mobile : ['']
-      
+    this.bloodDonationService.allBloodDonations()
+    this.bloodDonationService.sourceMessage.subscribe(data => {
+      this.totalDonations = data.length;
+      console.log(this.totalDonations);
     })
-  }
-
-  updatedetails(user : User){
-    this.Employee = user;
-    this.formvalue.controls['name'].setValue(user.name);
-    this.formvalue.controls['email'].setValue(user.email);
-    this.formvalue.controls['blood'].setValue(user.bloodGroup.bloodType);
-    this.formvalue.controls['Blooddonated'].setValue(user.dob);
-    this.formvalue.controls['Mobile'].setValue(user.contact);
-  }
-
-  update(){
-    this.Employee.name = this.formvalue.value.name;
-    this.Employee.email = this.formvalue.value.email;
-    
-
-    this.bloodservice.allBloodGroup().subscribe(bloodgroup =>{
-      console.log(bloodgroup);
-      this.bloodgroups = bloodgroup;
-      console.log("blood groups" + this.bloodgroups);
-    });
-    console.log(this.bloodgroups);
-    
-    for(var i = 0; i < this.bloodgroups.length; i++){
-      if(this.bloodgroups[i].bloodType == this.formvalue.value.blood){
-        this.Employee.bloodGroup = this.bloodgroups[i];
-      }
-  }
-    this.Employee.dob= this.formvalue.value.Blooddonated;
-    this.Employee.contact = this.formvalue.value.Mobile;
-    let id = this.Employee._id !;
-    this.userdetails.updateuser(id , this.Employee).subscribe(res =>{
-      console.log("Sucessful");
-      
-      let id = document.getElementById('close');
-      id?.click();
-      this.formvalue.reset();
-    },
-    err =>{
-      console.log("error");
-    });
-  }
-
-  delete(){
-    this.userdetails.deleteuser(this.userDelete._id !).subscribe(res =>{
-      console.log("Sucessful");
-      let id = document.getElementById('exit');
-      id?.click();
-      this.userdetails.allusers().subscribe(res=>{
-        this.employees=res;
-      });
-    },
-    err =>{
-      console.log("error");
-    });
-  }
-
-  deleteAccount(user: User){
-    this.userDelete = user;
+    this.bloodRequestService.allBloodRequests().subscribe(data => {
+      this.totalBloodRequests = data.length;
+      console.log(this.totalBloodRequests);
+    })
+    this.bloodGroupService.allBloodGroup().subscribe(data => {
+      this.totalBloodGroups = data.length;
+      console.log(this.totalBloodGroups);
+    })
   }
 
 }
