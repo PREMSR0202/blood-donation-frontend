@@ -1,3 +1,5 @@
+import { BloodRequestComponent } from './../user/blood-request/blood-request.component';
+import { EmployeesComponent } from './../user/employees/employees.component';
 import { BlooddonationComponent } from './blooddonation/blooddonation.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -16,6 +18,8 @@ const routes: Routes = [
             { path: "", component: DashboardComponent },
             { path: "bloodgroups", component: BloodgroupsComponent },
             { path: "blooddonation", component: BlooddonationComponent },
+            { path: "employees", component: EmployeesComponent },
+            { path: "bloodrequest", component: BloodRequestComponent }
         ]
     }
 
