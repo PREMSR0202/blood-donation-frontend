@@ -15,4 +15,8 @@ export interface User {
     lat?: number;
     lng?: number;
     isInterested: boolean;
+    location?:{
+      type: string;
+      coordinates: number[];
+    }
   }

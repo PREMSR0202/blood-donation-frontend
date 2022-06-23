@@ -166,6 +166,10 @@ getAddress(latitude: number, longitude: number) {
       updatedAt: date,
       lat: this.latitude,
       lng: this.longitude,
+      location: {
+        type: 'Point',
+        coordinates: [this.longitude, this.latitude],
+      }
     };
     
     this.auth.storeBasicInfo((user));
