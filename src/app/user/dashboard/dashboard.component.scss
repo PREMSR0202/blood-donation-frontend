@@ -1,106 +1,66 @@
-.content{
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 10px;
 }
 
-#outerClass
-{
-    position: relative;
-    margin: 0;
-    font-family: cursive;
-    margin-left: 0;
-    padding: 0;
-    width: 100%;
-    outline: 0;
-    overflow-x: hidden;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    background-image: linear-gradient(30deg, rgb(255, 159, 159) , rgb(255, 98, 98));
-    // background-color:rgb(255, 117, 117);
-}
-.custom-shape-divider-bottom-1655715192 {
-    position: absolute;
-   bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.custom-shape-divider-bottom-1655715192 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 59px;
-    transform: rotateY(180deg);
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  cursor: pointer;
 }
 
-.custom-shape-divider-bottom-1655715192 .shape-fill {
-    fill: #FFFFFF;
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-table 
-{
-    box-shadow: 2px 2px gainsboro;
-    font-size: 16px;
-    height: 500px;
-    background-color: whitesmoke;
-    overflow-y: scroll;
-}
-th 
-{
-    color: rgb(161, 0, 0);
+.flip-card-front {
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
-.contentText
-{
-    margin-left: 20px;
+.flip-card-back {
+  background-color: bisque;
+  color: rgb(59, 59, 59);
+  padding: 5px;
+  padding-top: 10px;
+  transform: rotateY(180deg);
 }
 
-td 
-{
-    padding: 20px 0px; 
+.flip-card-back h3,
+.bold {
+  color: indianred;
 }
 
-th i 
-{
-    font-size: 15px;
+.heading {
+  color: rgb(202, 136, 38);
+  text-decoration: underline;
 }
 
-#searchBar 
-{
-    display: block;
-    margin: 0px auto;
-    width: 35%;
-    margin-top: -80px;
-    margin-bottom: 70px;
-    height: 40px;
+#footer {
+  margin: 0;
+  border-top: 1px inset rgba(0, 0, 0, 0.2);
 }
 
-#search 
-{
-    outline: none;
-    box-shadow: none;
-    box-shadow: 2px 2px rgb(192, 192, 192);
-}
-
-.page-title{
-    .title{
-        h5{
-            font-size: 18px;
-            font-weight: 700;
-            color: #2a3e4c;
-            margin-bottom: 20px;
-        }
-    }
-    .breadcrumbs{
-        li{
-            color: #E85E4F;
-            font-weight: 500;
-        }
-    }
+table {
+  text-align: center;
+  margin-left: 10px;
 }

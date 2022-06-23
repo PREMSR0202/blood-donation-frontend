@@ -1,67 +1,193 @@
-<app-page-title [title]="'Dasboard'" [breadcrumb]="['Dashboard']"></app-page-title>
-<div class="row">
-  <div class="col-md-8">
+<!-- <app-page-title [title]="'Home'" [breadcrumb]="[]"></app-page-title> -->
 
-  </div>
-  <!-- <div class="col-md-4 mb-2">
-    <a href="" class="btn btn-primary float-md-end justify-content-center d-flex">
-      <span class='material-icons me-1'>add</span>
-      Create
-    </a>
-  </div> -->
-</div>
-<div id="outerClass">
-  <div class="row">
-    <div class="col-sm-12 contentText">
-      <br><br>
-      <h1>Our Super Heroes</h1>
-      <h6>Our super heroes are our volunteer blood donors</h6>
-      <br><br><br><bR><br>
+<div class="container-fluid">
+  <div class="row mt-4">
+      <div class="col-sm-6">
+          <img src="
+          https://media.istockphoto.com/vectors/volunteers-woman-and-man-donating-blood-blood-donor-charity-world-vector-id1256078529?k=20&m=1256078529&s=612x612&w=0&h=JrFegKBfxw6I-A4KeG1bMhHKT-luzi8GwHqIQhFzRkA="
+           width="100%" height="auto">
+      </div>
+     <div class="col-sm-6">
+      <div class="text-center">
+          <h1 class="mt-3 text-danger">Donate blood, save life</h1>
+      <p>Blood way is an initiative started in the year 2022 to connect people searching for blood and donors
+          .Blood donation is an extremely noble deed, yet there is a scarcity of regular donors across India.
+          We focus on creating & expanding a virtual army of blood donating volunteers who could be searched and contacted by family / care givers of a patient in times of need.
+      </p><br>
+      <button class="btn btn-danger btn-md">Search for Donors</button>
+      </div>
+     </div>
+    
     </div>
+  <br><br>
+    <!--process-->
+    <!-- <h4 class="text-center text-danger">How blood Donation works ?</h4> -->
+
+
+    <!--types of blood donation-->
+    <h4 class="text-center heading">Types of Blood Donation</h4>
+    <br>
+    <div class="row">
+      <!--1-->
+      <div class="col-sm-4">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="https://thumbs.dreamstime.com/b/colorful-illustration-cartoon-style-blood-bag-smiling-face-blood-transfusion-smiling-heart-shaped-blood-bag-180899879.jpg" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                  <h3>Whole Blood</h3> 
+                  <p><b class="bold">Who can donate :</b> You need to be 18-65 years old, weigh 45kg or more and be fit and healthy.</p> 
+                  <p><b  class="bold">Used for :</b> Stomach disease, kidney disease, childbirth, operations, blood loss, trauma, cancer, blood diseases, haemophilia, anemia, heart disease.</p>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-4">
+             <!--2-->
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="/assets/image/plasma.jpg" alt="Avatar" style="width:300px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+              <h3>Plasma</h3> 
+              <p><b class="bold">Who can donate :</b> You need to be 18-70 (men) or 20-70 (women) years old, weigh 50kg or more and must have given successful whole blood donation in last two years.</p> 
+              <p><b  class="bold">Used for :</b>Immune system conditions, pregnancy, bleeding and nerve conditions, haemophilia, immunisations.</p>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+      <div class="col-sm-4">
+           <!--3-->
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://media.istockphoto.com/vectors/blood-test-science-health-on-blood-donor-help-doctors-study-and-vector-id1401697341?k=20&m=1401697341&s=612x612&w=0&h=34TUed-YFCOpy3kyldpx4A3MMKcp9_SyYoW2RVdBkfE=" alt="Avatar" style="width:300px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+              <h3>Platelets</h3> 
+              <p><b class="bold">Who can donate :</b>You need to be 18-70 years old (men), weigh 50kg or more and have given a successful plasma donation in the past 12 months</p> 
+              <p><b  class="bold">Used for : </b>Cancer, blood diseases, haemophilia, anaemia, childbirth, trauma, burns.</p>
+            </div>
+          </div>
+      </div>
+      </div>
+      
+   
   </div>
-  <!--shape1-->
-  <div class="custom-shape-divider-bottom-1655715192">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
-    </svg>
+  <br><br>
+  <!--blood compatibility-->
+  <div >
+          <h4 style="text-align: center;" class="heading">Know your compatible blood types</h4>
+          <br>
+          <table class="table table-striped">
+              <thead class="bg-danger">
+                <tr>
+                  <th scope="col">Blood Type</th>
+                  <th scope="col">Donate Blood To</th>
+                  <th scope="col">Receive Blood From</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">A+</th>
+                  <td>A+ AB+</td>
+                  <td>A+ A- O+ O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">O+</th>
+                  <td>O+ A+ B+ AB+</td>
+                  <td>O+ O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">B+</th>
+                  <td>B+ AB+</td>
+                  <td>B+ B- O+ O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">AB+</th>
+                  <td>AB+</td>
+                  <td>Everyone</td>
+                </tr>
+                <tr>
+                  <th scope="row">A-</th>
+                  <td>A+ A- AB+ AB-	</td>
+                  <td>A- O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">O-</th>
+                  <td>Everyone</td>
+                  <td>O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">B-</th>
+                  <td>B+ B- AB+ AB-</td>
+                  <td>B- O-</td>
+                </tr>
+                <tr>
+                  <th scope="row">AB-</th>
+                  <td>AB+ AB-</td>
+                  <td>AB- A- B- O- </td>
+                </tr>
+              </tbody>
+            </table>
   </div>
+  <br>
+  <footer class="page-footer font-small pt-4 m-0 bg-light" id="footer">
 
-
+      <!-- Footer Text -->
+      <div class="container-fluid text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3" style="text-align: left;">
+    
+            <!-- Content -->
+            <img src="/assets/image/Logo_up.png" width="15%" height="25%">
+            <h5 class="text-uppercase font-weight-bold"><b><span class="text-danger">Blood  </span>way</b></h5>
+            <p>Blood way is an initiative started in the year 2022 to connect people searching for blood and donors. 
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <hr class="clearfix w-100 d-md-none pb-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-6 mb-md-0 mb-3">
+    
+            <!-- Content -->
+            <br>
+            <h5 class="text-uppercase font-weight-bold text-danger">Contact us</h5>
+            <p><i class="material-icons" style="font-size: 16px;">location_on</i>
+              Olympia Teknos, 8th Floor,
+              Ambedkar Nagar, SIDCO<br>
+              Industrial Estate, Guindy,
+              Chennai, Tamil Nadu 600032, India<br>
+              <i class="fa fa-phone"></i>
+              +91 44 4065 2301
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Text -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3 text-dark"><b>© 2022 Copyright:
+        <a >Bloodway</a></b>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+       
 </div>
 
-<div class="form-group" id="searchBar">
-  <input type="text" class="form-control search-field" id="search" autofocus placeholder="Search Here">
-</div>
-
-<div class="content">
-  <table class="table table-borderless">
-    <thead>
-      <tr>
-        <th><i class="material-icons">person_outline</i>&nbsp;Name</th>
-        <th><i class="material-icons">mail_outline</i>&nbsp;Email</th>
-        <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-droplet">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-          </svg>
-          Blood Group</th>
-        <th><i class="fa fa-question-circle-o"></i>&nbsp;Is Interested</th>
-        <th><i class="material-icons">phone</i>&nbsp;Contact Number</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let user of employees">
-      <tr>
-        <td style="color: #b98b00">{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 30 30" fill="none"
-            stroke="indianred" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-            <text x="5" y="16" fill="indianred" font-size="6px" font-weight="50">{{user.bloodGroup?.bloodType}}</text>
-          </svg></td>
-        <td>{{user.isInterested}}</td>
-        <td>{{user.contact}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
