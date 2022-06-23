@@ -5,8 +5,9 @@ import { EmployeeseditService } from 'src/app/service/user/employeesedit.service
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { BloodGroupService } from 'src/app/service/bloodGroup/bloodgroup.service';
-import { bloodGroup } from 'src/app/interfaces/bloodGroup';
-import { ToastrService } from 'ngx-toastr';
+import { blood } from 'src/app/interfaces/blood';
+import { delay } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-bloodgroups',
@@ -15,60 +16,53 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BloodgroupsComponent implements OnInit {
 
-  newbloodgroup: string = "";
-  bloodDelete!: bloodGroup;
+  s : string = "";
+  num: number | undefined;
   Employee!: User;
   formvalue !: FormGroup;
-  bloodgrps: bloodGroup[] = [];
-  constructor(private toastr: ToastrService, private userservice: EmployeesService, private userdetails: EmployeeseditService, private formbuilder: FormBuilder, private bloodservice: BloodGroupService) { }
+  employees : User[] = [];
+  blood !: blood 
+  dict = {};
+
+  title = 'Blood Group';
+  breadcrumb: string[] = [ 'Blood Group'];
+  isLoading : boolean = true;
+  constructor(private userservice : EmployeesService , private userdetails : EmployeeseditService , private formbuilder : FormBuilder , private bloodservice : BloodGroupService) { }
+
+   bloodgrps = new Map(); 
 
   ngOnInit(): void {
-    this.bloodservice.allBloodGroup().subscribe(blood => {
-      this.bloodgrps = blood;
-    });
 
-  }
-
-  delete() {
-    this.bloodservice.deleteBloodGroup(this.bloodDelete._id!).subscribe(res => {
-      console.log("Sucessful");
-      let id = document.getElementById('exit');
-      id?.click();
-      this.bloodservice.allBloodGroup().subscribe(blood => {
-        this.bloodgrps = blood;
-      });
-    },
-      err => {
-        console.log("error");
-      });
-  }
-
-  deleteAccount(user: bloodGroup) {
-    this.bloodDelete = user;
-  }
-
-  bgavail = false;
-  add() {
-    console.log(this.newbloodgroup);
-
-    for (let i = 0; i < this.bloodgrps.length; i++) {
-      if (this.bloodgrps[i].bloodType == this.newbloodgroup) {
-        this.bgavail = true;
-        this.toastr.error('Blood Group already Exists !!');
+    of(this.employees).pipe(delay(250)).subscribe((data)=>{
+      this.userdetails.allusers().subscribe(res=>{
+        this.employees=res;
+  
+      for(let i=0 ; i< this.employees.length; i++){
+        this.s = this.employees[i].bloodGroup.bloodType !;
+        if(this.s != undefined){
+          if(this.bloodgrps.has(this.s)){
+             this.num = this.bloodgrps.get(this.s);
+             if(this.num){
+              this.num= this.num + 1  ;
+              this.bloodgrps.set(this.s,this.num );
+             }
+        }
+        else{
+          this.bloodgrps.set(this.s,1);
+          console.log(this.bloodgrps.get(this.s)); 
+        }
+        this.isLoading = false;
+        this.num=0;
+        }
+        
       }
-    }
+      });
+      
+    })
+    
 
-    if (!this.bgavail) {
-      this.bloodservice.addBloodGroup(this.newbloodgroup).subscribe(res => {
-        this.toastr.success('Blood Group added !!');
-        this.bgavail = false;
-        this.bloodservice.allBloodGroup().subscribe(blood => {
-          this.bloodgrps = blood;
-        });
-      })
-    }
+    
+}
 
-    this.newbloodgroup = "";
 
-  }
 }
