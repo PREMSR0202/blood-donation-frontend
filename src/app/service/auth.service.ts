@@ -164,7 +164,6 @@ export class AuthService {
   getCurrentUser() {
     return this.http.get<User>(this.apiUrl + 'currentUser/').subscribe(
       (response: any) => {
-        console.log(response);
         this.userSubject.next(response);
       },
       (error) => {
