@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
-
+import { SwiperModule } from 'swiper/angular';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -33,6 +33,7 @@ import { VerifyComponent } from './Components/verify/verify.component';
     AppRoutingModule,
     SharedModule,
     AdminModule,
+    SwiperModule,
     UserModule,
     FormsModule,
     ReactiveFormsModule,

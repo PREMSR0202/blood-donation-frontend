@@ -8,6 +8,7 @@ import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-gro
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 const routes : Routes = [
     {
@@ -15,7 +16,8 @@ const routes : Routes = [
         children: [
             { path: "", component: DashboardComponent },
             { path: "bloodgroup", component: BloodDonarsGroupComponent},
-            { path: "profile", component: UserProfileComponent }
+            { path: "profile", component: UserProfileComponent },
+            {path: "landingpage" , component:LandingpageComponent}
         ]
     }
 ];
