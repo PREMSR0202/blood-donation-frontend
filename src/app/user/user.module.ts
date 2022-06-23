@@ -11,6 +11,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BloodDonationComponent } from './blood-donation/blood-donation.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { BloodRequestComponent } from './blood-request/blood-request.component';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
+import { DataTablesModule } from "angular-datatables";
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { BloodRequestComponent } from './blood-request/blood-request.component';
   imports: [
     CommonModule,
     SharedModule,
-    UserRoutingModule
+    UserRoutingModule,
+    DataTablesModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.gapi,
+      libraries: ['places']
+    })
   ]
 })
 export class UserModule { }

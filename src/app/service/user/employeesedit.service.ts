@@ -32,4 +32,13 @@ export class EmployeeseditService {
       })
     );
   }
+
+  findNearestUsers(lat: number, lng: number, place_id: string): Observable<any> {
+    // return http get request with lat and lng in body
+    return this.http.post(`${this.baseURL}findNearestUsers`,{ lat: lat,lng: lng, placeId: place_id }).pipe(
+      map((data: any) => {
+        this.sourceSubject.next(data);
+      })
+    )
+  }
 }
