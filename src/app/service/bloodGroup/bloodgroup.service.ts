@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { bloodGroup } from 'src/app/interfaces/bloodGroup';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +11,35 @@ import { environment } from 'src/environments/environment';
 export class BloodGroupService {
 
   private baseURL: string = environment.api;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
-  addBloodGroup(bloodType : string) :Observable<any>{
-    return this.http.post(this.baseURL + 'addBloodGroup' , {bloodType  : bloodType});
+  private sourceSubject = new Subject<bloodGroup[]>();
+  sourceMessage = this.sourceSubject.asObservable();
+
+  addBloodGroup(bloodType: string): Observable<any> {
+    return this.http.post(this.baseURL + 'addBloodGroup', { bloodType: bloodType });
   }
 
-  updateBloodGroup(_id : string , bloodType : bloodGroup) : Observable<any>{
+  updateBloodGroup(_id: string, bloodType: bloodGroup): Observable<any> {
     return this.http.patch(`${this.baseURL}updateBloodGroup/${_id}`, bloodType)
   }
 
-  deleteBloodGroup(id : string): Observable<any>{
-    return this.http.delete( `${this.baseURL}deleteBloodGroup/${id}`)
+  deleteBloodGroup(id: string) {
+    return this.http.delete(`${this.baseURL}deleteBloodGroup/${id}`).subscribe(data => {
+      this.allBloodGroup().subscribe();
+      this.toastr.success('Blood Group Deleted Successfully', '', {
+        timeOut: 2000,
+        closeButton: true,
+      });
+    })
   }
 
-  allBloodGroup():Observable<any>{
+  allBloodGroup(): Observable<any> {
     return this.http.get(this.baseURL + 'allBloodGroup').pipe(
-        map( (data: any) => {
-          console.log(data);
-          return data;
-          })
-        );
-    }
+      map((data: any) => {
+        this.sourceSubject.next(data);
+        return data;
+      })
+    );
+  }
 }
