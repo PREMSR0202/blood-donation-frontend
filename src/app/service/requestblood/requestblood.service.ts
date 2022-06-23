@@ -11,10 +11,11 @@ export class RequestbloodService {
 
   
   private baseURL: string = environment.api;
+  
   constructor(private http: HttpClient) { }
 
-  requestForm(data : RequestForm) :Observable<any>{
-    return this.http.post(this.baseURL + '' ,data);
+  addrequestForm(data : RequestForm) :Observable<any>{
+    return this.http.post(this.baseURL + 'addBloodRequest' ,data);
   }
 
 }
