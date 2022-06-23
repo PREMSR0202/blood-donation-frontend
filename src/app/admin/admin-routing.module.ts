@@ -6,6 +6,7 @@ import { BloodgroupsComponent } from "./bloodgroups/bloodgroups.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BloodRequestComponent } from './blood-request/blood-request.component';
 import { UsersComponent } from './users/users.component';
+import { RequestFormComponent } from '../Components/request-form/request-form.component';
 
 
 const routes: Routes = [
