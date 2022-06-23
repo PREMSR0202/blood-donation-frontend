@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
       this.cognitoService.isLoadingSubject.next(true);
     return this.cognitoService.isAuthenticated().then((isAuthenticated) => {
-      if (isAuthenticated) {
+      if (isAuthenticated) {        
         return true;
       } else {
         this.cognitoService.isLoadingSubject.next(false);

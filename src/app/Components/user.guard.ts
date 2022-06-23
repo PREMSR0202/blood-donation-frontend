@@ -24,9 +24,9 @@ export class UserGuard implements CanActivate {
     | boolean
     | UrlTree {
     this.cognitoService.isLoadingSubject.next(true);
-
+    
     return this.cognitoService.getUser().then((user) => {
-      if (user && user.attributes['custom:role'] === 'user') {
+      if (user && user.attributes['custom:role'] === 'user') {        
         this.cognitoService.isLoadingSubject.next(false);
         return true;
       } 

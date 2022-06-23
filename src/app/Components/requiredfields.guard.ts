@@ -22,7 +22,7 @@ export class RequiredfieldsGuard implements CanActivate {
         this.auth.hasRequiredFields().subscribe(
           (response : any) => {
             this.auth.isRequiredFieldsFilled = true;            
-            this.cognito.isLoadingSubject.next(false);
+            // this.cognito.isLoadingSubject.next(false);
             return true;
           },
           (error : any) => {

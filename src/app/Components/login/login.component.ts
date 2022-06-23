@@ -60,11 +60,8 @@ export class LoginComponent implements OnInit {
         });
         this.cognito.getToken().then((token) => {
           let tkn = token?.idToken?.jwtToken;
-          localStorage.setItem('idToken', token.idToken.jwtToken);
-          if(localStorage.getItem('idToken')){
-            console.log("login comp")
-            this.router.navigate(['/']);
-          }
+          localStorage.setItem('idToken', token.idToken.jwtToken);          
+          this.router.navigate(['/']);
         })
       }
     ).catch(
