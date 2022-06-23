@@ -1,1 +1,27 @@
 <app-page-title [title]="'Employees'" [breadcrumb]="['Employees']"></app-page-title>
+<div class="content mt-3 px-0 px-md-3">
+    <div class="rounded bg-white p-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>BloodGroup</th>
+                    <th>Donation Interested</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="allUsers!=null">
+                    <tr *ngFor="let i of allUsers; index as j">
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.contact}}</td>
+                        <td>{{i.bloodGroup.bloodType}}</td>
+                        <td>{{i.isInterested}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
