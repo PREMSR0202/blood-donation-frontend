@@ -47,12 +47,16 @@ const routes: Routes = [
     component: RequestFormComponent,
   },
   {path: 'login' , component: LoginComponent, canActivate: [GuestGuard]},
-  {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]}
+  {path: 'register', component: RegisterComponent, canActivate: [GuestGuard]},
+  {
+    path: '**',
+    redirectTo: '/'
+  } 
 ];
 
 // const routes: Routes = [];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash: true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

@@ -1,31 +1,31 @@
 <div [ngClass]="(isOpen) ? 'col-lg-2':'w-0 px-0 py-0'" class="sidebar text-white p-2 p-2">
     <ul class="nav-items w-100">
         <li class="menu-item">
-            <a routerLink="/admin" class=" d-flex align-items-center text-decoration-none">
+            <a routerLink="/admin" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">home</i>
                 <span class="menu-text mt-1">Dashboard</span>
             </a>
         </li>
         <li class="menu-item" routerLinkActive="active">
-            <a routerLink="/admin/bloodgroups" class=" d-flex align-items-center text-decoration-none">
+            <a routerLink="/admin/bloodgroups" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">bloodtype</i>
                 <span class="menu-text mt-1">Blood Groups</span>
             </a>
         </li>
         <li class="menu-item" routerLinkActive="active">
-            <a routerLink="/admin/blooddonation" class=" d-flex align-items-center text-decoration-none">
+            <a routerLink="/admin/blooddonation" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">volunteer_activism</i>
                 <span class="menu-text mt-1">Blood Donation</span>
             </a>
         </li>
         <li class="menu-item" routerLinkActive="active">
-            <a routerLink="/admin/employees" class=" d-flex align-items-center text-decoration-none">
+            <a routerLink="/admin/employees" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">badge</i>
                 <span class="menu-text mt-1">Emplpoyees</span>
             </a>
         </li>
         <li class="menu-item" routerLinkActive="active">
-            <a routerLink="/admin/bloodrequest" class=" d-flex align-items-center text-decoration-none">
+            <a routerLink="/admin/bloodrequest" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">add_to_photos</i>
                 <span class="menu-text mt-1">Blood Request</span>
             </a>

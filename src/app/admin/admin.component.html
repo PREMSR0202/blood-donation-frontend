@@ -1,7 +1,7 @@
 <app-admin-navbar [isOpen]="isOpen" (isOpenChange)="isOpenChange(isOpen)"></app-admin-navbar>
 <div class="admin-main">
     <div class="row m-0">
-        <app-admin-sidebar [isOpen]="isOpen"></app-admin-sidebar>
+        <app-admin-sidebar [isOpen]="isOpen" (isOpenChange)="toggleSidebar(isOpen)"></app-admin-sidebar>
         <div class="col main" [ngClass]="{'offset-lg-2': (isOpen)}">
             <router-outlet></router-outlet>
         </div>

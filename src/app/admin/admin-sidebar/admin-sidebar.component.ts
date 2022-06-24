@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input,Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -8,11 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AdminSidebarComponent implements OnInit {
 
   @Input() isOpen :any;
-
+  @Output() isOpenChange = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.isOpen);
+  }
+
+  toggleSidebar() {
+    this.isOpenChange.emit(false);
   }
 
 }

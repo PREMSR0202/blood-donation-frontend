@@ -28,4 +28,9 @@ export class UserComponent implements OnInit {
     this.isOpen = !open;
   }
 
+  toggleSidebar(open:boolean){
+    if(window.innerWidth <992)
+      this.isOpen = false
+  }
+
 }

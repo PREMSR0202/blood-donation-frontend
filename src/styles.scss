@@ -50,3 +50,21 @@ header{
         }
     }
 }
+.dataTables_paginate.paging_simple_numbers{
+    .active>.page-link{
+        background-color: #ff6262;
+        color: white;
+        &:hover{
+            background-color: #ff9f9f;
+        }
+    }
+    .page-link{
+        color: #ff6262;
+        &:hover{
+            background-color: #ff9f9f;
+        }
+    }
+}
+div#DataTables_Table_0_wrapper{
+    font-weight: 500;
+}

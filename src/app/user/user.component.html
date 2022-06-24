@@ -1,7 +1,7 @@
 <app-user-navbar [isOpen]="isOpen" (isOpenChange)="isOpenChange(isOpen)"></app-user-navbar>
 <div class="user-main">
     <div class="row m-0">
-        <app-user-sidebar [isOpen]="isOpen"></app-user-sidebar>
+        <app-user-sidebar [isOpen]="isOpen" (isOpenChange)="toggleSidebar(isOpen)"></app-user-sidebar>
         <div class="col main" [ngClass]="{'offset-lg-2': (isOpen)}">            
             <router-outlet></router-outlet>
         </div>

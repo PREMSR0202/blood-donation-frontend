@@ -27,5 +27,8 @@ export class AdminComponent implements OnInit {
   isOpenChange(open:boolean){
     this.isOpen = !open;
   }
-
+  toggleSidebar(open:boolean){
+    if(window.innerWidth <992)
+      this.isOpen = false
+  }
 }
