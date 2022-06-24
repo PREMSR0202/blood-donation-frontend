@@ -7,11 +7,13 @@ import { BloodGroupService } from 'src/app/service/bloodGroup/bloodgroup.service
   templateUrl: './bloodgroups.component.html',
   styleUrls: ['./bloodgroups.component.scss']
 })
+
 export class BloodgroupsComponent implements OnInit {
 
   constructor(private bloodservice: BloodGroupService) { }
 
   bloodgrps: any[] = [];
+  newBloodGroup: string = '';
 
   ngOnInit(): void {
     this.bloodservice.sourceMessage.subscribe(data => {
@@ -22,6 +24,11 @@ export class BloodgroupsComponent implements OnInit {
 
   deleteBloodGroup(id: string) {
     this.bloodservice.deleteBloodGroup(id)
+  }
+
+  addBloodGroup() {
+    this.bloodservice.addBloodGroup(this.newBloodGroup);
+    this.newBloodGroup = '';
   }
 
 }

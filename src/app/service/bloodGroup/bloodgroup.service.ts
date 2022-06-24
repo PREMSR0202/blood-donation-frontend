@@ -16,8 +16,14 @@ export class BloodGroupService {
   private sourceSubject = new Subject<bloodGroup[]>();
   sourceMessage = this.sourceSubject.asObservable();
 
-  addBloodGroup(bloodType: string): Observable<any> {
-    return this.http.post(this.baseURL + 'addBloodGroup', { bloodType: bloodType });
+  addBloodGroup(bloodType: string) {
+    return this.http.post(this.baseURL + 'addBloodGroup', { bloodType: bloodType }).subscribe(data => {
+      this.allBloodGroup().subscribe();
+      this.toastr.success('Blood Group Added Successfully', '', {
+        timeOut: 2000,
+        closeButton: true,
+      });
+    });
   }
 
   updateBloodGroup(_id: string, bloodType: bloodGroup): Observable<any> {
