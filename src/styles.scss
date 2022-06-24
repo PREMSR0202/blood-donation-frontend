@@ -1,70 +1,77 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 // Plus imports for other components in your app.
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
-
-body{
-    margin :0;
-    padding: 0;
-    height: 100vh;
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 ::-webkit-scrollbar {
-          position: fixed;
-          width: 6px;
-      }
-      
-      /* Track */
-      ::-webkit-scrollbar-track {
-          background: #F9F9F9; 
-      }
-      
-      ::-webkit-scrollbar-thumb {
-          background: #606060; 
-          border-radius: 5px;
-      }
-.material-icons{
-    cursor: pointer;
+  position: fixed;
+  width: 6px;
 }
-.btn-primary{
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 5px;
+}
+.material-icons {
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #ff6262;
+  border: unset;
+  &:hover {
+    background-color: #ff9f9f;
+  }
+  &:active,
+  &:focus {
+    outline: unset;
     background-color: #ff6262;
+    box-shadow: unset !important;
     border: unset;
-    &:hover{
-        background-color: #ff9f9f;
-    }
-    &:active, &:focus{
-        outline: unset;
-        background-color: #ff6262;
-        box-shadow: unset !important;
-        border: unset;
-    }
+  }
 }
-header{
-    .dropdown-item{
-        &:active{
-            background-color: #ff6262 !important;
-        }
+header {
+  .dropdown-item {
+    &:active {
+      background-color: #ff6262 !important;
     }
+  }
 }
-.dataTables_paginate.paging_simple_numbers{
-    .active>.page-link{
-        background-color: #ff6262;
-        color: white;
-        &:hover{
-            background-color: #ff9f9f;
-        }
+.dataTables_paginate.paging_simple_numbers {
+  .active > .page-link {
+    background-color: #ff6262;
+    color: white;
+    &:hover {
+      background-color: #ff9f9f;
     }
-    .page-link{
-        color: #ff6262;
-        &:hover{
-            background-color: #ff9f9f;
-        }
+  }
+  .page-link {
+    color: #ff6262;
+    &:hover {
+      background-color: #ff9f9f;
     }
+  }
 }
-div#DataTables_Table_0_wrapper{
-    font-weight: 500;
+div#DataTables_Table_0_wrapper {
+  font-weight: 500;
+}
+.form-control {
+  border-radius: 5px;
+}
+.form-control:focus {
+  outline: 2px solid #e2ab60;
+  border-color: #e2ab60;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }

@@ -14,6 +14,7 @@ import { BloodRequestComponent } from './blood-request/blood-request.component';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
 import { DataTablesModule } from "angular-datatables";
+import { FindNearestEmployeeComponent } from './find-nearest-employee/find-nearest-employee.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DataTablesModule } from "angular-datatables";
     UserProfileComponent,
     BloodDonationComponent,
     EmployeesComponent,
-    BloodRequestComponent
+    BloodRequestComponent,
+    FindNearestEmployeeComponent
   ],
   imports: [
     CommonModule,

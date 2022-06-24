@@ -8,6 +8,7 @@ import { BloodDonarsGroupComponent } from './blood-donars-group/blood-donars-gro
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user.component';
+import { FindNearestEmployeeComponent } from './find-nearest-employee/find-nearest-employee.component';
 
 const routes: Routes = [
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
             { path: "profile", component: UserProfileComponent },
             { path: "blooddonation", component: BloodDonationComponent },
             { path: "employees", component: EmployeesComponent },
-            { path: "bloodrequest", component: BloodRequestComponent }
+            { path: "bloodrequest", component: BloodRequestComponent },
+            { path: "findnearestemployee", component: FindNearestEmployeeComponent }
         ]
     }
 ];
