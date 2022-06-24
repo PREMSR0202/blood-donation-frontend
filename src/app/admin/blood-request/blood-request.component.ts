@@ -25,7 +25,7 @@ export class BloodRequestComponent implements OnInit {
 
   deleteRequest(res : bloodRequest){
     this.bloodReqService.deleteBloodRequest(res._id).subscribe((res)=>{
-      this.toastr.error("Request Deleted !");
+      this.toastr.success("Blood Donated");
       this.bloodReqService.allBloodRequests().subscribe((res)=>{
         this.bloodreq = res;
       })

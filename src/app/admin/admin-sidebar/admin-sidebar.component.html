@@ -1,6 +1,6 @@
 <div [ngClass]="(isOpen) ? 'col-lg-2':'w-0 px-0 py-0'" class="sidebar text-white p-2 p-2">
     <ul class="nav-items w-100">
-        <li class="menu-item">
+        <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
             <a routerLink="/admin" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">home</i>
                 <span class="menu-text mt-1">Dashboard</span>
@@ -21,7 +21,7 @@
         <li class="menu-item" routerLinkActive="active">
             <a routerLink="/admin/employees" (click)="toggleSidebar()" class=" d-flex align-items-center text-decoration-none">
                 <i class="material-icons me-2">badge</i>
-                <span class="menu-text mt-1">Emplpoyees</span>
+                <span class="menu-text mt-1">Employees</span>
             </a>
         </li>
         <li class="menu-item" routerLinkActive="active">

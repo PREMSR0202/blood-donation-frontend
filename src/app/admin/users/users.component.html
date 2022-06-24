@@ -17,17 +17,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let i of allUsers; index as j">
-                        <td>{{i.name}}</td>
-                        <td>{{i.email}}</td>
-                        <td>{{i.contact}}</td>
-                        <td>{{i.bloodGroup.bloodType}}</td>
-                        <td *ngIf="i.isInterested"><span class="badge rounded-pill bg-success">Yes</span></td>
-                        <td *ngIf="!i.isInterested"><span class="badge rounded-pill bg-danger">No</span></td>
-                        <td *ngIf="i.distance">{{i.distance | number: '1.0-0'}}</td>
-                        <td><a class="btn btn-primary" href="{{'https://google.com/maps/search/'+i.lat+'+'+i.lng}}" target="_blank">See On Map</a></td>
-                        <!-- <ng-container *ngIf="!i.distance">
-                            <td>Not Available</td>
-                        </ng-container> -->
+                        <td>{{i?.name}}</td>
+                        <td>{{i?.email}}</td>
+                        <td>{{i?.contact}}</td>
+                        <td>{{i?.bloodGroup.bloodType}}</td>
+                        <td *ngIf="i?.isInterested"><span class="badge rounded-pill bg-success">Yes</span></td>
+                        <td *ngIf="!i?.isInterested"><span class="badge rounded-pill bg-danger">No</span></td>
+                        <td *ngIf="i?.distance">{{i?.distance | number: '1.0-0'}}</td>
+                        <td><a class="btn btn-primary" href="{{'https://google.com/maps/search/'+i?.lat+'+'+i?.lng}}" target="_blank">See On Map</a></td>
                     </tr>
                 </tbody>
             </table>
